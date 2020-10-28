@@ -24,7 +24,7 @@ vector<string> ReadCsvFile(string path)
 this method is used to seperate the data to several array
 */
 
-string* DataPreHandle(vector<string> data)
+string** DataPreHandle(vector<string> data)
 {
     int data_amount=1;
     for(int i=0;i<data[0].size();i++)
@@ -34,9 +34,11 @@ string* DataPreHandle(vector<string> data)
             data_amount++;
         }
     }
-    static string my_data[data_amount][data.size()];
+    string ** my_data= new string *[data_amount];
+
     for(int i=0;i<data_amount;i++)
     {
+        my_data[i] = new string [data.size()];
         for(int j=0;j<data[i].size();j++)
         {
              string str = "";
@@ -46,12 +48,11 @@ string* DataPreHandle(vector<string> data)
              }
              else
              {
-                 my_data[i][j] = str; 
+                 my_data [i][j] = str; 
              }
         }
     }
-    return my_data;
-
+    return  my_data;
 }
 
 /*
@@ -62,11 +63,11 @@ int main()
 {
     string path="/home/fengchao/Nutstore Files/代码/统计学习方法/my-code/statistics-learning-method-for-cpp/iris-data/Iris.csv";
     vector <string> iris_data = ReadCsvFile(path);
-    string* my_data;
+    string** my_data;
     my_data = DataPreHandle(iris_data);
     for (int i =0; i<6;i++)
     {
-        for(int j = 0; j<my_data[0].size();j++)
+        for(int j = 0; j< my_data[0].size();j++)
         {
             cout<<my_data[i][j];
         }
