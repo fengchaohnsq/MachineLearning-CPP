@@ -56,3 +56,15 @@ vector<vector<string>> DataPreHandle(vector<string> data,int data_row)
     }
     return  my_data;
 }
+/*
+this method is k nearest neighbor algorithm
+*/
+void KNN(string path)
+{
+    
+}
+
+int main()
+{
+
+}

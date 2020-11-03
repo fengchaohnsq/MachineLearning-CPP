@@ -142,7 +142,6 @@ This method is  original perceptron algorithm
 */
 void PerceptronOriginal(string path, int data_row, int data_column, double learning_rate=0.1,double train_data_percent=1)// parameters without default value has to be put at the first position.
 {
-    //Spliting data as train and prediction data
     vector <string> iris_data = ReadCsvFile(path);
     vector<vector<string>> my_data = DataPreHandle(iris_data,data_row);
     cout<<"my_data row"<<my_data.size()<<endl;

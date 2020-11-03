@@ -169,7 +169,6 @@ this method is dual perceptron algorithm
 */
 void PerceptronDual(string path, int data_row, int data_column, double learning_rate=0.1,double train_data_percent=1)
 {
-    //Spliting data as train and prediction data
     vector <string> iris_data = ReadCsvFile(path);
     vector<vector<string>> my_data = DataPreHandle(iris_data,data_row);
     cout<<"my_data row"<<my_data.size()<<endl;
