@@ -4,6 +4,7 @@
 #include<cstring>
 #include<vector>
 #include<math.h>
+#include <algorithm>
 using namespace std;
 /*
 this method is used for reading csv file to a vector class 
@@ -136,15 +137,14 @@ tree_node CreateNode(int split_dimention,vector<vector<double>> data)
 {
     tree_node node;
     int feature_num=data[0].size()-1;// this is also k value, excluding the id item 
-    vector<vector<double>> sort_data=SortByDimention(data,split_dimention);// sorting data by data dimention;
-    vector<vector<vector<double>>> splited_data=SplitData(sort_data.size()/2,sort_data);
+    data=SortByDimention(data,split_dimention);// sorting data by data dimention;
     int split_next_dimention=(split_dimention+1)%feature_num;// find next dimention l = j mod k+1, its range is [0,k)
     node.split_dimention=split_dimention;
-    int id_pos=sort_data.size()/2;
-    node.data_id=sort_data[id_pos][0];
+    int id_pos=data.size()/2;
+    node.data_id=data[id_pos][0];
     //assign data to left and right tree
-    if(splited_data[0].size()>1){*node.left = CreateNode(split_next_dimention,splited_data[0]);}
-    if(splited_data[1].size()>1){*node.right = CreateNode(split_next_dimention,splited_data[1]);}
+    if(data[0].size()>1){*node.left = CreateNode(split_next_dimention,splited_data[0]);}
+    if(data[1].size()>1){*node.right = CreateNode(split_next_dimention,splited_data[1]);}
     return node;
 }
 /*
@@ -154,10 +154,10 @@ tree_node ConstructKdTree(string train_path,int tr_data_row)
 {
     vector <string> iris_data = ReadCsvFile(train_path);
     vector<vector<string>> my_data = DataPreHandle(iris_data,tr_data_row);
-    cout<<"my_data row"<<my_data.size()<<endl;
-    cout<<"my_data column"<<my_data[0].size()<<endl;
     vector<vector<double>> x_train_data;
     vector<double> y_train_data;
+    cout<<"my_data row"<<my_data.size()<<endl;
+    cout<<"my_data column"<<my_data[0].size()<<endl;
     vector<double> data_bin;
 
     //set X dataset and convert Y label as 1,2,3

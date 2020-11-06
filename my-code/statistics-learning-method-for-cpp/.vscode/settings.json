@@ -6,6 +6,10 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "cmath": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "vector": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "initializer_list": "cpp"
     }
 }
