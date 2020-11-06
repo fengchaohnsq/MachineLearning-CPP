@@ -143,8 +143,14 @@ tree_node CreateNode(int split_dimention,vector<vector<double>> data)
     int id_pos=data.size()/2;
     node.data_id=data[id_pos][0];
     //assign data to left and right tree
-    if(data[0].size()>1){*node.left = CreateNode(split_next_dimention,splited_data[0]);}
-    if(data[1].size()>1){*node.right = CreateNode(split_next_dimention,splited_data[1]);}
+    vector<vector<double>> bin1;
+    bin1.resize(id_pos);
+    vector<vector<double>> bin2;
+    bin1.resize(data.size()-id_pos-1);
+    if(data.size()>1){copy(data.begin(),data.begin()+id_pos,bin1.begin()-1);}
+    if(data.size()>1){copy(data.begin()+id_pos+1,data.end()+id_pos-1,bin2.begin()-1);}
+    if(bin1.size()>1){*node.left = CreateNode(split_next_dimention,bin1);}
+    if(bin2.size()>1){*node.right = CreateNode(split_next_dimention,bin2);}
     return node;
 }
 /*
