@@ -6,6 +6,9 @@
 #include<math.h>
 #include <algorithm>
 using namespace std;
+vector<vector<double>> x_train_data;
+vector<vector<double>> origin_x_train_data;
+vector<double> y_train_data;
 /*
 this method is used for reading csv file to a vector class 
 */
@@ -59,16 +62,31 @@ vector<vector<string>> DataPreHandle(vector<string> data,int data_row)
 }
 /*
 This method used to calculate the distance between two instances. 
-It include two types of distances:L1 Euclidean distance,L2 Manhattan distance
+It include two types of distances:p =1 is L1 Manhattan distance, p=2 is L2 Euclidean distance.
 */
-double LDistance(vector<double> x_i,vector<double>x_j,double p=1)
+double LDistance(vector<double> x_i,vector<double>x_j,double p=1,bool is_exclude = true)
 {
     double distance=0.0;
-    if(x_i.size()==x_j.size())
+    if(x_i.size()==x_j.size()&& is_exclude)
     {
         for(int i=0;i<x_i.size();i++)
         {
-            distance=distance+pow((abs(x_i[0]-x_j[0])),p);
+            distance=distance+pow((abs(x_i[i]-x_j[i])),p);
+        }
+    }
+    // exclude the id column
+    if(x_i.size()==x_j.size()&& !is_exclude)
+    {
+        for(int i=1;i<x_i.size();i++)
+        {
+            distance=distance+pow((abs(x_i[i]-x_j[i])),p);
+        }
+    }
+    if(x_i.size()<x_j.size())
+    {
+        for(int i=0;i<x_i.size();i++)
+        {
+            distance=distance+pow((abs(x_i[i]-x_j[i+1])),p);
         }
     }
     double result = pow(distance,1/p);
@@ -79,31 +97,21 @@ tree node
 */
 struct tree_node
 {
-    int data_id=0; // median number data id
+    //int data_id; // median number data id
+    vector<double> row_data;
     int split_dimention; // x data sort dimention 
-    tree_node *left;// the left tree node which is less than x dimention data median
-    tree_node *right;// the right tree node which is more than x dimention data median
-};
-/*
-This method used to sort data by some dimention of data row
-*/
-vector<vector<double>> SortByDimention(vector<vector<double>>x_data,int data_dimention)
-{
-    for(int row = 0;row<x_data.size();row++)
+    tree_node *left=NULL;// the left tree node which is less than x dimention data median
+    tree_node *right=NULL;// the right tree node which is more than x dimention data median
+    tree_node *parent=NULL;
+    tree_node(vector<double> data,int dimention)
     {
-        for(int row1 = row+1;row1<x_data.size();row1++)
-        {
-            if(x_data[row][data_dimention] > x_data[row1][data_dimention])
-            {
-                vector<double> x_data_temp;
-                x_data_temp = x_data[row];
-                x_data[row]=x_data[row1];
-                x_data[row1]=x_data_temp;
-            }
-        }
+        row_data = data;
+        split_dimention= dimention;
+        left = NULL;
+        right = NULL;
+        parent = NULL;
     }
-    return x_data;
-}
+};
 /*
 This method used for spliting the data by median position
 */
@@ -131,39 +139,61 @@ vector<vector<vector<double>>> SplitData(int split_pos,vector<vector<double>> da
     return splited_data;
 }
 /*
+This method used to sort data by some dimention of data row
+*/
+void SortByDimention(int left, int right,int data_dimention)
+{
+    for(int row =left;row<right;row++)
+    {
+        for(int row1 = left+1;row1<right;row1++)
+        {
+            if(x_train_data[row][data_dimention] > x_train_data[row1][data_dimention])
+            {
+                vector<double> x_data_temp;
+                x_data_temp = x_train_data[row];
+                x_train_data[row]=x_train_data[row1];
+                x_train_data[row1]=x_data_temp;
+            }
+        }
+    }
+}
+/*
 This method create node by recursion calling
 */
-tree_node CreateNode(int split_dimention,vector<vector<double>> data)
+tree_node* CreateTreeNode(int left,int right, int dim)
 {
-    tree_node node;
-    int feature_num=data[0].size()-1;// this is also k value, excluding the id item 
-    data=SortByDimention(data,split_dimention);// sorting data by data dimention;
-    int split_next_dimention=(split_dimention+1)%feature_num;// find next dimention l = j mod k+1, its range is [0,k)
-    node.split_dimention=split_dimention;
-    int id_pos=data.size()/2;
-    node.data_id=data[id_pos][0];
-    //assign data to left and right tree
-    vector<vector<double>> bin1;
-    bin1.resize(id_pos);
-    vector<vector<double>> bin2;
-    bin1.resize(data.size()-id_pos-1);
-    if(data.size()>1){copy(data.begin(),data.begin()+id_pos,bin1.begin()-1);}
-    if(data.size()>1){copy(data.begin()+id_pos+1,data.end()+id_pos-1,bin2.begin()-1);}
-    if(bin1.size()>1){*node.left = CreateNode(split_next_dimention,bin1);}
-    if(bin2.size()>1){*node.right = CreateNode(split_next_dimention,bin2);}
+    if(right<left)
+    {
+        return NULL;
+    }
+    int feature_num=x_train_data[0].size()-1;
+    int mid = (left + right+1) / 2;
+    //sort(x_train_data.begin()+left,x_train_data.begin()+right+1,cmp);
+    SortByDimention(left,right,dim+1);// exclude the id column
+    tree_node *node =new tree_node(x_train_data[mid],dim);
+    node->left=CreateTreeNode(left,mid-1,(dim + 1) % feature_num);
+    if(node->left!=NULL)
+    {
+        node->left->parent=node;
+    }
+    node->right=CreateTreeNode(mid+1,right,(dim + 1) % feature_num);
+    if(node->right!=NULL)
+    {
+        node->right->parent=node;
+    }
     return node;
 }
 /*
-This method is to construct KD tree
+This method is to construct KD tree1
 */
-tree_node ConstructKdTree(string train_path,int tr_data_row)
+tree_node *root;
+void ConstructKdTree(string train_path,int tr_data_row)
 {
     vector <string> iris_data = ReadCsvFile(train_path);
     vector<vector<string>> my_data = DataPreHandle(iris_data,tr_data_row);
-    vector<vector<double>> x_train_data;
-    vector<double> y_train_data;
-    cout<<"my_data row"<<my_data.size()<<endl;
-    cout<<"my_data column"<<my_data[0].size()<<endl;
+    
+    // cout<<"my_data row"<<my_data.size()<<endl;
+    // cout<<"my_data column"<<my_data[0].size()<<endl;
     vector<double> data_bin;
 
     //set X dataset and convert Y label as 1,2,3
@@ -174,6 +204,7 @@ tree_node ConstructKdTree(string train_path,int tr_data_row)
             data_bin.push_back(atof(my_data[row][column].c_str()));  //c_str is needed to convert string to const char* previously (the function requires it)
         }
         x_train_data.push_back(data_bin);
+        origin_x_train_data.push_back(data_bin);
         data_bin.clear();
         // set Iris-setosa as 1, other species as -1
         if(my_data[row][my_data[0].size()-1]=="Iris-setosa")
@@ -189,19 +220,156 @@ tree_node ConstructKdTree(string train_path,int tr_data_row)
             y_train_data.push_back(3);
         }  
     }
+    
     //construct kd tree
-    tree_node root = CreateNode(0,x_train_data);
-    return root;
+    // cout<<"x_train_data.size():"<<x_train_data.size()<<endl;
+    root = CreateTreeNode(0,x_train_data.size()-1,0);
 }
 /*
-This method is preorder travesal B-tree
+This method is travesal  kd tree with LDR or DLR or LRD sequence
 */
-void Preorder(tree_node node)
+void printKdTreeNode(tree_node * root)
 {
-    Preorder(*node.left);
-    Preorder(*node.right);
-    cout<<"tree node id:"<<node.data_id<<endl;
+    if (root == NULL){return;}
+    //cout << root->data_id << "\t";//DLR
+    printKdTreeNode(root->left);
+    cout << root->row_data[0] << "-"; //LDR
+    printKdTreeNode(root->right);
+    //cout << root->data_id << "\t";//LRD
 }
+/*
+sorting the nearest neighbors list
+*/
+vector<vector<double>> SortNeighbors(vector<vector<double>> &nearest_neighbors, vector<double> input)
+{
+    vector<double>bin;
+    if(nearest_neighbors.size()>1)
+    {
+        for(int row1 =0 ;row1<nearest_neighbors.size();row1++)
+        {
+            for(int row =row1+1 ;row<nearest_neighbors.size();row++)
+            {
+                if(LDistance(input,nearest_neighbors[row1])>LDistance(input,nearest_neighbors[row]))
+                {
+                    bin=nearest_neighbors[row1];
+                    nearest_neighbors[row1]=nearest_neighbors[row];
+                    nearest_neighbors[row]=bin;
+                }
+            }
+        }
+    }
+    return nearest_neighbors;
+}
+/*
+Searching subtree node to find the nearest neighbor
+*/
+void SearchSubtree(vector<vector<double>> &nearest_neighbors,vector<double> input,tree_node * sub_node,int k )
+{
+    if(sub_node==NULL){return;}
+    // sorting the nearest node list
+    nearest_neighbors=SortNeighbors(nearest_neighbors,input);
+    // recursiving search the sub kd tree
+    double largest_dis =LDistance(input,nearest_neighbors[nearest_neighbors.size()-1]);
+    if(abs(sub_node->row_data[sub_node->split_dimention+1]-input[sub_node->split_dimention])<largest_dis)
+    {
+        if(nearest_neighbors.size()<k+1)
+        {
+            nearest_neighbors.push_back(sub_node->row_data);
+        }
+        else
+        {
+            nearest_neighbors[nearest_neighbors.size()-1]=sub_node->row_data;
+        }
+        SearchSubtree(nearest_neighbors,input,sub_node->left,k);
+        SearchSubtree(nearest_neighbors,input,sub_node->right,k);
+    }
+    else
+    {
+        //searching left if mid value less than input
+        if(sub_node->row_data[sub_node->split_dimention+1] > input[sub_node->split_dimention])
+        {
+            SearchSubtree(nearest_neighbors,input,sub_node->left,k);
+        }
+        else
+        {
+            SearchSubtree(nearest_neighbors,input,sub_node->right,k);
+        }
+        
+    }
+}
+
+/*
+
+this method is to find the nearest neighbor in the kd tree
+*/
+vector<vector<double>> SearchKDtree(int feature_num,vector<double> input,int k )
+{
+    tree_node* r = root;
+    tree_node* leaf_node;
+    vector<vector<double>> nearest_neighbors;
+    vector<double>bin;
+    vector<double> distance;
+    int dim =0;
+    //find the leaf node
+    while(r!=NULL)
+    {
+        leaf_node =r;
+        if(input[dim]<r->row_data[dim+1])
+        { 
+            r=r->left;
+        }
+        else
+        {
+            r=r->right;  
+        }  
+        dim=(dim+1)%feature_num;     
+    }
+    // include the leaf node
+    nearest_neighbors.push_back(leaf_node->row_data);
+    r=leaf_node;
+    //search kd tree 
+    while (r->parent!=NULL)
+    {
+        r=r->parent;// go to parent node
+
+        // sorting the nearest node list
+        nearest_neighbors=SortNeighbors(nearest_neighbors,input);
+        // if the current node data less than the bigest nearest neighbor then go to the right node
+        double largest_dis =LDistance(input,nearest_neighbors[nearest_neighbors.size()-1]);
+        if(nearest_neighbors.size()<k+1)
+        {       
+            nearest_neighbors.push_back(r->row_data);
+        }
+        else if(nearest_neighbors.size()>=k+1 && LDistance(input,r->row_data)<largest_dis)
+        {
+            bin=r->row_data;
+            nearest_neighbors[nearest_neighbors.size()-1]=bin;
+        }     
+     
+    
+        
+        tree_node * son;
+        // search another subtree
+        if(abs(r->row_data[r->split_dimention+1]-input[r->split_dimention])<largest_dis)
+        {
+            if(r->row_data[r->split_dimention+1] > input[r->split_dimention])// searching right if mid value less than input
+            {              
+                son=r->right;
+            }  
+            else
+            {
+                son=r->left;;
+            }    
+             SearchSubtree(nearest_neighbors, input,son,k); 
+             
+        }
+        
+    }
+    return nearest_neighbors;
+}
+
+
+
 
 int main()
 {
@@ -211,6 +379,135 @@ int main()
     int te_data_row=15;
     int data_column=5;
     int k_value=12;
-    tree_node root = ConstructKdTree(train_path,tr_data_row);
-    Preorder(root);
+    ConstructKdTree(train_path,tr_data_row);
+    printKdTreeNode(root);
+    cout<<endl;
+    vector<double> input;
+    input.push_back(6);
+    input.push_back(4);
+    input.push_back(0.4);
+    input.push_back(0.4);
+    vector<vector<double>> nearest_neighbor;
+    nearest_neighbor=SearchKDtree(4,input,5);
+
+    //distance 
+    vector<double>distance;
+    for(int i=0;i<x_train_data.size();i++)
+    {
+        distance.push_back(LDistance(input,x_train_data[i]));
+    }
+    // sorting distance
+    double bin;
+    for(int row1 =0 ;row1<distance.size();row1++)
+    {
+        for(int row =row1+1 ;row<distance.size();row++)
+        {
+            if(distance[row1] > distance[row])
+            {
+                bin=distance[row1];
+                distance[row1]=distance[row];
+                distance[row]=bin;
+            }
+        }
+    }
+
+    //distance1 and distance2
+    vector<double>distance1;
+    for(int i =0 ; i<5;i++)
+    {
+        distance1.push_back(LDistance(input,nearest_neighbor[i]));
+        cout<<"distance:    "<<distance[i]<<"distance1:   "<<LDistance(input,nearest_neighbor[i])<<endl;
+    }
+
+    cout<<"searching end"<< endl;
 }
+
+
+
+
+// /*
+// antother method to search kd sub tree
+// */
+// void searchKdTreeNode(vector<vector<double>> &nearest_neighbors,vector<double> d,double &minDis,tree_node * &nearNode,tree_node * tmp,int k)
+// {
+//     //stop
+//     if (tmp == NULL){return;}
+//     // 判断当前节点是否小于
+//     if (LDistance(d,tmp->row_data) < minDis)
+//     {
+//         nearest_neighbors.push_back(tmp->row_data);
+//         minDis = LDistance(d,tmp->row_data);
+//         nearNode = tmp;
+//     }
+//     // 如果轴与节点的距离小于minDis，则两个半边都需要搜索，否则只需要搜索一个半边
+//     if (abs(tmp->row_data[tmp->split_dimention+1] - d[tmp->split_dimention]) < minDis)
+//     {
+//         searchKdTreeNode(nearest_neighbors, d, minDis, nearNode, tmp->left,k);
+//         searchKdTreeNode(nearest_neighbors, d, minDis, nearNode, tmp->right,k);
+//     }
+//     else
+//     {
+//     // 选择搜索的一个半边
+//         if (tmp->row_data[tmp->split_dimention+1] > d[tmp->split_dimention])
+//             searchKdTreeNode(nearest_neighbors, d, minDis, nearNode, tmp->left,k);
+//         else
+//             searchKdTreeNode(nearest_neighbors, d, minDis, nearNode, tmp->right,k);
+//     }
+// }
+// /*
+// another method to travesal kd tree
+// */
+// vector<vector<double>> SearchKDtree1(int feature_num,vector<double> input,int k=1)
+// {
+//     tree_node* r = root;
+//     tree_node* temp;
+//     vector<vector<double>> nearest_neighbors;
+//     vector<double>bin;
+//     vector<double> distance;
+//     int dim =0;
+//     //find the leaf node
+//     while(r!=NULL)
+//     {
+//         temp =r;
+//         if(input[dim]<r->row_data[dim+1])
+//         { 
+//             r=r->left;
+//         }
+//         else
+//         {
+//             r=r->right;  
+//         }  
+//         dim=(dim+1)%feature_num;     
+//     }
+//     // include the leaf node
+//     r=temp;// go to parent node
+//     //bin=temp->row_data;
+//     //nearest_neighbors.push_back(bin);
+//     double minDis=LDistance(input, temp->row_data);
+//     tree_node * nearNode;
+//     // 退回到根节点
+//     while (r->parent != NULL)
+//     {
+//         r = r->parent;       
+//         // 判断父节点是否更近，如果近，更新最近节点
+//         if (LDistance(input, r->row_data)< minDis)
+//         {
+            
+//             nearest_neighbors.push_back(r->row_data);
+//             nearNode = r; 
+//             minDis = LDistance(input, r->row_data);
+//         }
+//         tree_node * son;
+//         // 判断当前轴与点的距离，如果小于minDis，则进行到另一半进行查找
+//         if (abs(r->row_data[r->split_dimention+1]-input[r->split_dimention]) < minDis)
+//         {
+//             //search another subtree which is not travesal in the first time
+//             if(r->row_data[r->split_dimention+1]>input[r->split_dimention]) 
+//                 son = r->right;
+//             else
+//                 son = r->left;
+//             searchKdTreeNode(nearest_neighbors, input, minDis, nearNode, son,k);
+//         }
+//     }   
+//     return nearest_neighbors;
+// }

@@ -68,7 +68,7 @@ double LDistance(vector<double> x_i,vector<double>x_j,double p=1)
     {
         for(int i=0;i<x_i.size();i++)
         {
-            distance=distance+pow((abs(x_i[0]-x_j[0])),p);
+            distance=distance+pow((abs(x_i[i]-x_j[i])),p);
         }
     }
     double result = pow(distance,1/p);

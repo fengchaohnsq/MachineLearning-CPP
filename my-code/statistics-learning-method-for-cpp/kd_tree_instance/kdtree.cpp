@@ -335,7 +335,6 @@ void KDTree::CFindKNearests(const float *coor, size_t k, size_t *args, float *di
  
  
 // 初始化缓存
- 
 inline void KDTree::InitBuffer() {
     get_mid_buf_ = new std::tuple<size_t, float>[n_samples];
     visited_buf_ = new bool[n_samples];
