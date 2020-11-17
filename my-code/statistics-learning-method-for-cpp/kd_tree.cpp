@@ -266,8 +266,7 @@ Searching subtree node to find the nearest neighbor
 void SearchSubtree(vector<vector<double>> &nearest_neighbors,vector<double> input,tree_node * sub_node,int k )
 {
     if(sub_node==NULL){return;}
-    // sorting the nearest node list
-    nearest_neighbors=SortNeighbors(nearest_neighbors,input);
+    
     // recursiving search the sub kd tree
     double largest_dis =LDistance(input,nearest_neighbors[nearest_neighbors.size()-1]);
     if(abs(sub_node->row_data[sub_node->split_dimention+1]-input[sub_node->split_dimention])<largest_dis)
@@ -280,6 +279,8 @@ void SearchSubtree(vector<vector<double>> &nearest_neighbors,vector<double> inpu
         {
             nearest_neighbors[nearest_neighbors.size()-1]=sub_node->row_data;
         }
+        // sorting the nearest node list
+        nearest_neighbors=SortNeighbors(nearest_neighbors,input);
         SearchSubtree(nearest_neighbors,input,sub_node->left,k);
         SearchSubtree(nearest_neighbors,input,sub_node->right,k);
     }
@@ -299,7 +300,6 @@ void SearchSubtree(vector<vector<double>> &nearest_neighbors,vector<double> inpu
 }
 
 /*
-
 this method is to find the nearest neighbor in the kd tree
 */
 vector<vector<double>> SearchKDtree(int feature_num,vector<double> input,int k )
@@ -331,9 +331,6 @@ vector<vector<double>> SearchKDtree(int feature_num,vector<double> input,int k )
     while (r->parent!=NULL)
     {
         r=r->parent;// go to parent node
-
-        // sorting the nearest node list
-        nearest_neighbors=SortNeighbors(nearest_neighbors,input);
         // if the current node data less than the bigest nearest neighbor then go to the right node
         double largest_dis =LDistance(input,nearest_neighbors[nearest_neighbors.size()-1]);
         if(nearest_neighbors.size()<k+1)
@@ -345,9 +342,8 @@ vector<vector<double>> SearchKDtree(int feature_num,vector<double> input,int k )
             bin=r->row_data;
             nearest_neighbors[nearest_neighbors.size()-1]=bin;
         }     
-     
-    
-        
+        // sorting the nearest node list
+        nearest_neighbors=SortNeighbors(nearest_neighbors,input);
         tree_node * son;
         // search another subtree
         if(abs(r->row_data[r->split_dimention+1]-input[r->split_dimention])<largest_dis)
@@ -363,12 +359,11 @@ vector<vector<double>> SearchKDtree(int feature_num,vector<double> input,int k )
              SearchSubtree(nearest_neighbors, input,son,k); 
              
         }
+
         
     }
     return nearest_neighbors;
 }
-
-
 
 
 int main()
