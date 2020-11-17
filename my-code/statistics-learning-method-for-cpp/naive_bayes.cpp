@@ -224,9 +224,6 @@ void GaussianBayesClassifier(vector<vector<double>> x_data,vector<string> label,
         cout<<"the probability of input data in class label "<<label_class[i]<<"is : "<<P_Yk_Xi<<endl;
     }
 }
-/*
-
-*/
 int main()
 {
     // setting Y label string
