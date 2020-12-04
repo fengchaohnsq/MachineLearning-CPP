@@ -1,0 +1,701 @@
+ID,Attrition_Flag,Customer_Age,Gender,Dependent_count,Education_Level,Marital_Status,Income_Category,Card_Category,Months_on_book,Total_Relationship_Count,Months_Inactive_12_mon,Contacts_Count_12_mon,Credit_Limit,Total_Revolving_Bal,Avg_Open_To_Buy,Total_Amt_Chng_Q4_Q1,Total_Trans_Amt,Total_Trans_Ct,Total_Ct_Chng_Q4_Q1,Avg_Utilization_Ratio,Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_1,Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_2
+1,Existing Customer,45,M,3,High School,Married,$60K - $80K,Blue,39,5,1,3,12691,777,11914,1.335,1144,42,1.625,0.061,9.3448E-05,0.99991
+2,Existing Customer,49,F,5,Graduate,Single,Less than $40K,Blue,44,6,1,2,8256,864,7392,1.541,1291,33,3.714,0.105,5.6861E-05,0.99994
+3,Existing Customer,51,M,3,Graduate,Married,$80K - $120K,Blue,36,4,1,0,3418,0,3418,2.594,1887,20,2.333,0,2.1081E-05,0.99998
+4,Existing Customer,40,F,4,High School,Unknown,Less than $40K,Blue,34,3,4,1,3313,2517,796,1.405,1171,20,2.333,0.76,0.00013366,0.99987
+5,Existing Customer,40,M,3,Uneducated,Married,$60K - $80K,Blue,21,5,1,0,4716,0,4716,2.175,816,28,2.5,0,2.1676E-05,0.99998
+6,Existing Customer,44,M,2,Graduate,Married,$40K - $60K,Blue,36,3,1,2,4010,1247,2763,1.376,1088,24,0.846,0.311,5.5077E-05,0.99994
+7,Existing Customer,51,M,4,Unknown,Married,$120K +,Gold,46,6,1,3,34516,2264,32252,1.975,1330,31,0.722,0.066,0.00012303,0.99988
+8,Existing Customer,32,M,0,High School,Unknown,$60K - $80K,Silver,27,2,2,2,29081,1396,27685,2.204,1538,36,0.714,0.048,8.5795E-05,0.99991
+9,Existing Customer,37,M,3,Uneducated,Single,$60K - $80K,Blue,36,5,2,0,22352,2517,19835,3.355,1350,24,1.182,0.113,4.4796E-05,0.99996
+10,Existing Customer,48,M,2,Graduate,Single,$80K - $120K,Blue,36,6,3,3,11656,1677,9979,1.524,1441,32,0.882,0.144,0.00030251,0.9997
+11,Existing Customer,42,M,5,Uneducated,Unknown,$120K +,Blue,31,5,3,2,6748,1467,5281,0.831,1201,42,0.68,0.217,0.00019094,0.99981
+12,Existing Customer,65,M,1,Unknown,Married,$40K - $60K,Blue,54,6,2,3,9095,1587,7508,1.433,1314,26,1.364,0.174,0.00019751,0.9998
+13,Existing Customer,56,M,1,College,Single,$80K - $120K,Blue,36,3,6,0,11751,0,11751,3.397,1539,17,3.25,0,4.7799E-05,0.99995
+14,Existing Customer,35,M,3,Graduate,Unknown,$60K - $80K,Blue,30,5,1,3,8547,1666,6881,1.163,1311,33,2,0.195,9.6126E-05,0.9999
+15,Existing Customer,57,F,2,Graduate,Married,Less than $40K,Blue,48,5,2,2,2436,680,1756,1.19,1570,29,0.611,0.279,0.00011382,0.99989
+16,Existing Customer,44,M,4,Unknown,Unknown,$80K - $120K,Blue,37,5,1,2,4234,972,3262,1.707,1348,27,1.7,0.23,6.3492E-05,0.99994
+17,Existing Customer,48,M,4,Post-Graduate,Single,$80K - $120K,Blue,36,6,2,3,30367,2362,28005,1.708,1671,27,0.929,0.078,0.00023623,0.99976
+18,Existing Customer,41,M,3,Unknown,Married,$80K - $120K,Blue,34,4,4,1,13535,1291,12244,0.653,1028,21,1.625,0.095,0.00014953,0.99985
+19,Existing Customer,61,M,1,High School,Married,$40K - $60K,Blue,56,2,2,3,3193,2517,676,1.831,1336,30,1.143,0.788,0.00017468,0.99983
+20,Existing Customer,45,F,2,Graduate,Married,Unknown,Blue,37,6,1,2,14470,1157,13313,0.966,1207,21,0.909,0.08,5.5077E-05,0.99994
+21,Existing Customer,47,M,1,Doctorate,Divorced,$60K - $80K,Blue,42,5,2,0,20979,1800,19179,0.906,1178,27,0.929,0.086,5.703E-05,0.99994
+22,Attrited Customer,62,F,0,Graduate,Married,Less than $40K,Blue,49,2,3,3,1438.3,0,1438.3,1.047,692,16,0.6,0,0.99616,0.0038363
+23,Existing Customer,41,M,3,High School,Married,$40K - $60K,Blue,33,4,2,1,4470,680,3790,1.608,931,18,1.571,0.152,6.9242E-05,0.99993
+24,Existing Customer,47,F,4,Unknown,Single,Less than $40K,Blue,36,3,3,2,2492,1560,932,0.573,1126,23,0.353,0.626,0.00020735,0.99979
+25,Existing Customer,54,M,2,Unknown,Married,$80K - $120K,Blue,42,4,2,3,12217,0,12217,1.075,1110,21,0.75,0,0.00021042,0.99979
+26,Existing Customer,41,F,3,Graduate,Single,Less than $40K,Blue,28,6,1,2,7768,1669,6099,0.797,1051,22,0.833,0.215,5.7151E-05,0.99994
+27,Existing Customer,59,M,1,High School,Unknown,$40K - $60K,Blue,46,4,1,2,14784,1374,13410,0.921,1197,23,1.3,0.093,5.0256E-05,0.99995
+28,Existing Customer,63,M,1,Unknown,Married,$60K - $80K,Blue,56,3,3,2,10215,1010,9205,0.843,1904,40,1,0.099,0.00018558,0.99981
+29,Existing Customer,44,F,3,Uneducated,Single,Unknown,Blue,34,5,2,2,10100,0,10100,0.525,1052,18,1.571,0,0.00012144,0.99988
+30,Existing Customer,47,M,4,High School,Married,$40K - $60K,Blue,42,6,0,0,4785,1362,3423,0.739,1045,38,0.9,0.285,7.6642E-06,0.99999
+31,Existing Customer,53,M,3,Unknown,Married,$80K - $120K,Blue,33,3,2,3,2753,1811,942,0.977,1038,25,2.571,0.658,0.00021834,0.99978
+32,Existing Customer,53,M,2,Uneducated,Married,$60K - $80K,Blue,48,2,5,1,2451,1690,761,1.323,1596,26,1.6,0.69,0.00012458,0.99988
+33,Existing Customer,41,M,4,Graduate,Married,$60K - $80K,Blue,36,4,1,2,8923,2517,6406,1.726,1589,24,1.667,0.282,5.7762E-05,0.99994
+34,Existing Customer,53,F,2,College,Married,Less than $40K,Blue,38,5,2,3,2650,1490,1160,1.75,1411,28,1,0.562,0.00018612,0.99981
+35,Existing Customer,58,M,0,Graduate,Married,$80K - $120K,Blue,49,6,2,2,12555,1696,10859,0.519,1291,24,0.714,0.135,9.7673E-05,0.9999
+36,Existing Customer,55,F,1,College,Single,Less than $40K,Blue,36,4,2,1,3520,1914,1606,0.51,1407,43,0.483,0.544,6.2639E-05,0.99994
+37,Existing Customer,55,F,3,Graduate,Married,Less than $40K,Blue,36,6,2,3,3035,2298,737,1.724,1877,37,1.176,0.757,0.00019864,0.9998
+38,Existing Customer,42,F,4,High School,Married,Less than $40K,Gold,36,2,3,3,15433,0,15433,0.865,966,22,1.2,0,0.00035532,0.99964
+39,Existing Customer,57,F,1,Graduate,Unknown,$40K - $60K,Blue,49,3,3,2,3672,886,2786,1.32,1464,28,0.556,0.241,0.00016883,0.99983
+40,Attrited Customer,66,F,0,Doctorate,Married,Unknown,Blue,56,5,4,3,7882,605,7277,1.052,704,16,0.143,0.077,0.9978,0.00219708
+41,Existing Customer,45,M,3,Graduate,Single,$80K - $120K,Blue,41,2,2,2,32426,578,31848,1.042,1109,28,0.474,0.018,0.00011811,0.99988
+42,Existing Customer,51,M,2,Unknown,Married,$40K - $60K,Blue,44,4,1,0,6205,2204,4001,0.803,1347,28,0.556,0.355,2.2331E-05,0.99998
+43,Existing Customer,50,F,1,College,Single,$40K - $60K,Silver,43,3,2,3,17304,2517,14787,1.449,1756,33,1.2,0.145,0.00015785,0.99984
+44,Existing Customer,49,M,3,High School,Married,$60K - $80K,Blue,37,5,2,1,3906,0,3906,1.214,1756,32,1,0,6.9242E-05,0.99993
+45,Existing Customer,38,F,4,Graduate,Single,Unknown,Blue,28,2,3,3,9830,2055,7775,0.977,1042,23,0.917,0.209,0.00031726,0.99968
+46,Existing Customer,49,M,4,Uneducated,Single,$80K - $120K,Blue,30,3,2,3,34516,0,34516,1.621,1444,28,1.333,0,0.00020643,0.99979
+47,Existing Customer,56,M,2,Doctorate,Married,$60K - $80K,Blue,45,6,2,0,2283,1430,853,2.316,1741,27,0.588,0.626,6.0759E-05,0.99994
+48,Existing Customer,59,M,1,Doctorate,Married,$40K - $60K,Blue,52,3,2,2,2548,2020,528,2.357,1719,27,1.7,0.793,0.0001546,0.99985
+49,Existing Customer,46,M,3,High School,Married,$80K - $120K,Blue,40,4,3,3,19458,1435,18023,0.787,1217,27,0.8,0.074,0.00030516,0.99969
+50,Existing Customer,52,M,1,College,Single,$80K - $120K,Blue,40,5,1,1,4745,1227,3518,0.624,1140,40,0.6,0.259,3.031E-05,0.99997
+51,Existing Customer,52,F,3,Unknown,Married,Less than $40K,Blue,41,6,3,2,2622,1549,1073,1.321,1878,30,1.143,0.591,0.00020516,0.99979
+52,Attrited Customer,54,F,1,Graduate,Married,Less than $40K,Blue,40,2,3,1,1438.3,808,630.3,0.997,705,19,0.9,0.562,0.99028,0.00972
+53,Existing Customer,66,F,0,High School,Married,Less than $40K,Blue,54,3,4,2,3171,2179,992,1.224,1946,38,1.923,0.687,0.00018134,0.99982
+54,Existing Customer,49,M,2,Unknown,Married,$120K +,Blue,36,4,2,0,19763,2517,17246,0.664,1414,35,0.25,0.127,4.6151E-05,0.99995
+55,Attrited Customer,56,M,2,Graduate,Married,$120K +,Blue,36,1,3,3,15769,0,15769,1.041,602,15,0.364,0,0.99671,0.00329379
+56,Existing Customer,49,F,4,Graduate,Unknown,Less than $40K,Blue,36,6,4,2,3298,2200,1098,0.678,1052,32,0.6,0.667,0.00022797,0.99977
+57,Existing Customer,49,F,3,Graduate,Single,Less than $40K,Blue,36,2,2,0,2802,2363,439,0.75,1295,40,0.6,0.843,4.3568E-05,0.99996
+58,Existing Customer,56,M,2,Uneducated,Married,$40K - $60K,Blue,50,4,2,3,4458,1880,2578,1.107,1424,29,1.417,0.422,0.00019683,0.9998
+59,Existing Customer,44,F,5,Graduate,Married,Unknown,Blue,35,4,1,2,6273,978,5295,2.275,1359,25,1.083,0.156,5.6861E-05,0.99994
+60,Existing Customer,42,M,2,High School,Single,$60K - $80K,Blue,34,4,4,3,3336,1753,1583,0.69,1168,27,1.25,0.525,0.00035539,0.99964
+61,Existing Customer,55,M,3,Unknown,Married,$80K - $120K,Blue,47,4,2,3,3436,2016,1420,0.901,1097,33,0.833,0.587,0.00021834,0.99978
+62,Attrited Customer,48,M,2,Graduate,Married,$60K - $80K,Silver,35,2,4,4,34516,0,34516,0.763,691,15,0.5,0,0.99823,0.00177065
+63,Existing Customer,39,M,1,High School,Divorced,$60K - $80K,Blue,33,5,3,3,5926,1251,4675,0.944,1316,28,1.154,0.211,0.00027604,0.99972
+64,Existing Customer,44,M,4,Post-Graduate,Single,$120K +,Blue,32,2,4,2,23957,2102,21855,0.997,1276,26,0.733,0.088,0.00026824,0.99973
+65,Existing Customer,53,M,2,High School,Single,$120K +,Blue,44,4,2,2,14734,1634,13100,0.989,1289,23,0.917,0.111,0.00011065,0.99989
+66,Existing Customer,51,M,4,Uneducated,Single,$80K - $120K,Silver,38,4,1,4,34516,1515,33001,0.592,1293,32,0.6,0.044,0.00015398,0.99985
+67,Existing Customer,57,M,2,College,Married,$60K - $80K,Blue,52,5,3,3,6584,1817,4767,0.62,1353,35,0.667,0.276,0.00029411,0.99971
+68,Existing Customer,44,F,2,Uneducated,Single,Less than $40K,Blue,20,6,3,3,2084,1468,616,1.004,1132,28,0.556,0.704,0.00031104,0.99969
+69,Existing Customer,49,M,2,Graduate,Married,$60K - $80K,Blue,32,2,2,2,1687,1107,580,1.715,1670,17,2.4,0.656,0.00011382,0.99989
+70,Existing Customer,50,M,2,Doctorate,Married,$80K - $120K,Blue,38,6,2,2,25300,1330,23970,1.072,837,15,2,0.053,0.00016471,0.99984
+71,Existing Customer,51,M,4,Graduate,Single,$120K +,Blue,42,3,2,3,34516,1763,32753,1.266,1550,41,1.05,0.051,0.00020077,0.9998
+72,Existing Customer,55,F,2,Graduate,Married,Less than $40K,Blue,42,5,3,3,2216,1034,1182,0.758,1540,36,0.286,0.467,0.00030251,0.9997
+73,Existing Customer,54,M,1,Graduate,Unknown,$60K - $80K,Blue,43,4,2,3,2910,2030,880,0.769,1256,21,0.4,0.698,0.00017969,0.99982
+74,Existing Customer,42,M,5,Uneducated,Married,$80K - $120K,Blue,37,6,2,2,22913,1528,21385,0.414,1394,35,0.522,0.067,0.00012082,0.99988
+75,Existing Customer,44,M,1,College,Single,$60K - $80K,Blue,35,3,3,3,24312,1932,22380,1.312,1341,24,1.182,0.079,0.00027607,0.99972
+76,Existing Customer,53,M,2,Graduate,Single,$80K - $120K,Blue,36,5,3,2,5272,1515,3757,0.857,1289,33,0.435,0.287,0.00017987,0.99982
+77,Existing Customer,44,F,4,Graduate,Single,Less than $40K,Blue,36,6,4,2,7000,2517,4483,0.475,1112,23,1.875,0.36,0.00022797,0.99977
+78,Existing Customer,37,F,3,Uneducated,Single,Less than $40K,Blue,29,4,4,2,7038,1801,5237,0.751,2339,57,0.966,0.256,0.00023192,0.99977
+79,Existing Customer,49,M,3,Graduate,Divorced,$60K - $80K,Blue,30,6,1,2,2536,1823,713,0.703,1468,23,0.353,0.719,5.7151E-05,0.99994
+80,Existing Customer,47,M,2,Graduate,Married,$80K - $120K,Blue,38,6,3,2,28904,1899,27005,0.85,1334,35,0.4,0.066,0.00017987,0.99982
+81,Existing Customer,47,M,3,Graduate,Married,$60K - $80K,Blue,37,4,4,0,8567,1695,6872,1.242,1457,41,1.412,0.198,8.3212E-05,0.99992
+82,Existing Customer,44,M,1,Unknown,Unknown,$120K +,Blue,36,6,2,2,34516,1533,32983,0.924,1603,29,0.526,0.044,0.00011743,0.99988
+83,Attrited Customer,55,F,4,Unknown,Married,$40K - $60K,Blue,45,2,4,3,2158,0,2158,0.585,615,12,0.714,0,0.99763,0.00236635
+84,Existing Customer,59,F,1,Graduate,Married,Unknown,Blue,52,2,3,3,10133,1417,8716,0.383,1068,20,0.818,0.14,0.00028395,0.99972
+85,Existing Customer,53,M,1,Graduate,Divorced,$80K - $120K,Blue,35,5,4,2,34516,1219,33297,1.129,1590,27,2,0.035,0.00020404,0.9998
+86,Existing Customer,52,M,2,Graduate,Married,$60K - $80K,Blue,47,5,3,0,3085,1910,1175,0.921,1531,35,0.667,0.619,6.6354E-05,0.99993
+87,Existing Customer,53,M,2,High School,Single,$120K +,Blue,35,4,2,1,19040,2056,16984,0.607,1212,31,0.722,0.108,6.6728E-05,0.99993
+88,Existing Customer,43,F,3,Uneducated,Single,Less than $40K,Blue,35,5,2,3,4026,0,4026,0.483,1237,32,0.6,0,0.00020424,0.9998
+89,Existing Customer,44,M,3,High School,Single,$60K - $80K,Blue,31,4,3,1,12756,837,11919,1.932,1413,14,1.8,0.066,0.00010943,0.99989
+90,Existing Customer,57,M,2,Unknown,Married,$120K +,Blue,45,5,3,3,5266,0,5266,1.702,1516,29,1.636,0,0.00033251,0.99967
+91,Existing Customer,51,F,2,High School,Single,Less than $40K,Blue,36,3,2,2,9930,0,9930,0.731,1276,21,1.333,0,0.00011065,0.99989
+92,Existing Customer,49,M,4,High School,Single,$80K - $120K,Blue,38,4,3,0,31302,1953,29349,0.875,1564,35,2.182,0.062,6.765E-05,0.99993
+93,Existing Customer,45,M,1,Graduate,Single,$40K - $60K,Blue,36,4,4,3,6576,0,6576,0.579,1465,34,0.619,0,0.00034315,0.99966
+94,Existing Customer,53,M,0,Graduate,Single,$80K - $120K,Blue,42,5,4,1,2664,2037,627,0.85,1286,29,0.933,0.765,0.0001125,0.99989
+95,Existing Customer,45,F,3,Unknown,Married,Unknown,Blue,28,5,1,2,2535,2440,95,1.705,1312,20,1.222,0.963,6.282E-05,0.99994
+96,Existing Customer,64,M,1,Graduate,Married,Less than $40K,Blue,52,6,4,3,1709,895,814,1.656,1673,32,0.882,0.524,0.00034315,0.99966
+97,Existing Customer,45,M,3,Graduate,Married,$40K - $60K,Blue,35,5,4,2,3454,1200,2254,0.597,1313,30,0.304,0.347,0.00022556,0.99977
+98,Existing Customer,53,M,3,Doctorate,Married,$40K - $60K,Blue,35,5,3,2,3789,1706,2083,1.047,1609,42,0.68,0.45,0.00027008,0.99973
+99,Existing Customer,56,M,3,College,Married,$120K +,Blue,50,3,2,0,9689,2250,7439,0.576,1158,19,0.727,0.232,4.2358E-05,0.99996
+100,Attrited Customer,47,M,2,Unknown,Married,$80K - $120K,Blue,37,2,3,3,5449,1628,3821,0.696,836,18,0.385,0.299,0.997,0.00299743
+101,Existing Customer,49,F,3,College,Single,Unknown,Blue,43,4,4,0,23032,1960,21072,0.619,1289,22,1,0.085,8.0901E-05,0.99992
+102,Existing Customer,41,F,3,Unknown,Married,Unknown,Silver,34,5,3,3,34516,2053,32463,1.034,1487,26,0.733,0.059,0.00031177,0.99969
+103,Existing Customer,53,M,3,Graduate,Married,$120K +,Blue,34,6,2,2,2940,1264,1676,0.562,1259,33,0.5,0.43,0.00011811,0.99988
+104,Existing Customer,44,F,2,Graduate,Single,Less than $40K,Blue,32,3,3,3,3031,1879,1152,0.788,1298,15,1.5,0.62,0.00030251,0.9997
+105,Existing Customer,44,M,3,High School,Unknown,$60K - $80K,Blue,25,3,3,0,1862,0,1862,0.883,1226,34,0.789,0,6.6935E-05,0.99993
+106,Existing Customer,43,F,4,Post-Graduate,Married,Less than $40K,Blue,33,2,3,3,8358,926,7432,0.762,1566,37,0.542,0.111,0.00037329,0.99963
+107,Existing Customer,53,M,2,Post-Graduate,Single,$120K +,Blue,36,6,1,2,34516,931,33585,0.828,1022,21,1.1,0.027,6.4807E-05,0.99994
+108,Existing Customer,44,M,1,Uneducated,Married,$60K - $80K,Blue,36,5,2,3,14450,2440,12010,1.283,1235,30,0.667,0.169,0.00018475,0.99982
+109,Existing Customer,62,F,1,Unknown,Married,Less than $40K,Blue,56,6,0,0,1438.3,0,1438.3,0.813,1951,44,1.095,0,7.7559E-06,0.99999
+110,Existing Customer,54,M,4,Unknown,Divorced,$120K +,Blue,36,6,3,2,33791,1960,31831,0.618,1047,31,0.824,0.058,0.00020735,0.99979
+111,Existing Customer,57,M,4,Graduate,Married,$60K - $80K,Blue,39,4,3,0,8466,1886,6580,0.56,1342,32,0.391,0.223,6.9589E-05,0.99993
+112,Existing Customer,42,M,3,Unknown,Married,$60K - $80K,Blue,36,5,3,3,15088,865,14223,0.939,1107,21,1.625,0.057,0.00034503,0.99965
+113,Existing Customer,42,M,4,High School,Divorced,$60K - $80K,Blue,36,5,1,2,3263,1674,1589,0.588,1251,35,0.346,0.513,5.6153E-05,0.99994
+114,Existing Customer,54,F,0,Uneducated,Married,Less than $40K,Blue,36,2,2,2,1494,706,788,1.674,1305,24,3,0.473,0.00010043,0.9999
+115,Existing Customer,48,M,3,Graduate,Single,$80K - $120K,Blue,35,6,1,0,13551,1294,12257,0.791,1388,37,1.056,0.095,2.1081E-05,0.99998
+116,Existing Customer,49,M,1,Graduate,Single,$80K - $120K,Blue,36,6,2,2,18886,895,17991,1.826,1235,18,1.571,0.047,0.00010684,0.99989
+117,Existing Customer,52,M,3,High School,Unknown,$80K - $120K,Blue,48,3,2,0,11976,1273,10703,1.024,2089,36,1.118,0.106,4.2354E-05,0.99996
+118,Existing Customer,50,M,3,High School,Single,$80K - $120K,Blue,39,4,1,4,9964,1559,8405,1.873,1626,25,0.786,0.156,0.00015942,0.99984
+119,Existing Customer,49,M,1,Doctorate,Married,$60K - $80K,Blue,36,4,6,3,24159,1196,22963,0.712,1111,24,1,0.05,0.00032436,0.99968
+120,Existing Customer,53,F,2,High School,Married,Less than $40K,Blue,44,3,2,3,5362,1901,3461,0.816,1553,38,1,0.355,0.0001861,0.99981
+121,Existing Customer,50,M,2,Graduate,Single,$120K +,Blue,36,3,2,2,34516,1023,33493,1.004,1064,13,0.625,0.03,0.00011382,0.99989
+122,Existing Customer,55,F,1,Doctorate,Married,Less than $40K,Blue,36,4,1,0,3174,1951,1223,0.766,1243,29,0.611,0.615,2.7596E-05,0.99997
+123,Existing Customer,53,M,1,High School,Married,$80K - $120K,Blue,47,3,2,2,12262,1836,10426,1.584,1659,38,1.533,0.15,0.00010386,0.9999
+124,Existing Customer,47,F,3,High School,Single,$40K - $60K,Blue,41,4,3,3,3788,1540,2248,0.566,1594,47,0.382,0.407,0.00030516,0.99969
+125,Existing Customer,55,M,2,College,Single,$120K +,Silver,42,2,3,2,34516,1527,32989,0.526,1268,42,0.355,0.044,0.00015801,0.99984
+126,Existing Customer,47,M,3,Graduate,Single,$60K - $80K,Blue,36,4,2,2,2926,0,2926,0.676,1304,24,0.846,0,0.00011811,0.99988
+127,Existing Customer,58,M,4,Graduate,Single,$120K +,Blue,52,6,1,0,32090,0,32090,0.567,1368,30,0.364,0,2.1307E-05,0.99998
+128,Attrited Customer,53,M,2,Graduate,Married,$80K - $120K,Blue,41,3,3,2,11669,2227,9442,0.622,720,23,0.353,0.191,0.99447,0.00553
+129,Existing Customer,52,M,2,High School,Single,$40K - $60K,Blue,45,3,1,2,13532,1300,12232,0.846,1521,29,1.417,0.096,5.3542E-05,0.99995
+130,Existing Customer,50,F,1,Uneducated,Unknown,Less than $40K,Silver,36,4,2,2,11888,2090,9798,0.7,1137,30,0.765,0.176,9.9255E-05,0.9999
+131,Existing Customer,42,F,1,Graduate,Married,Less than $40K,Blue,36,5,1,2,2393,1985,408,0.788,978,16,0.778,0.83,5.1697E-05,0.99995
+132,Existing Customer,43,M,4,Unknown,Married,$40K - $60K,Blue,39,5,1,2,6111,2517,3594,0.632,1221,16,2.2,0.412,6.3492E-05,0.99994
+133,Existing Customer,57,M,4,Graduate,Married,$80K - $120K,Blue,46,3,2,3,19270,1662,17608,1.186,1565,28,1.545,0.086,0.00020077,0.9998
+134,Existing Customer,52,M,1,Graduate,Married,$80K - $120K,Blue,43,3,1,4,3710,2517,1193,1.541,1578,34,0.7,0.678,0.00014834,0.99985
+135,Existing Customer,47,M,2,Doctorate,Single,Less than $40K,Blue,37,2,1,3,3235,797,2438,0.541,1493,32,1,0.246,0.00013405,0.99987
+136,Existing Customer,44,F,3,Graduate,Single,$40K - $60K,Blue,38,3,1,0,11749,788,10961,0.688,1178,27,0.929,0.067,2.1081E-05,0.99998
+137,Existing Customer,53,M,2,High School,Divorced,$60K - $80K,Blue,36,5,3,2,7753,2100,5653,0.839,991,26,0.733,0.271,0.00017486,0.99983
+138,Existing Customer,45,M,4,College,Divorced,$60K - $80K,Blue,40,5,1,0,10408,1186,9222,1.689,2560,42,1.211,0.114,2.0715E-05,0.99998
+139,Existing Customer,63,F,1,College,Married,Unknown,Blue,36,6,2,3,3967,1568,2399,1.236,1657,29,1.231,0.395,0.0001747,0.99983
+140,Existing Customer,39,F,2,Post-Graduate,Single,Less than $40K,Blue,27,4,2,2,6205,2517,3688,0.939,1204,19,0.727,0.406,0.00013393,0.99987
+141,Attrited Customer,48,F,5,High School,Married,Less than $40K,Blue,38,1,3,3,8025,0,8025,0.654,673,18,0.8,0,0.99672,0.00328187
+142,Existing Customer,51,M,1,Unknown,Single,$120K +,Blue,42,6,2,3,9036,2327,6709,0.649,1131,18,0.636,0.258,0.00019751,0.9998
+143,Existing Customer,54,M,4,Graduate,Married,$80K - $120K,Blue,34,2,3,2,14926,2517,12409,1.996,1576,25,1.5,0.169,0.00018864,0.99981
+144,Existing Customer,59,F,1,Graduate,Single,Less than $40K,Blue,36,3,2,3,6335,1128,5207,0.397,1217,20,0.667,0.178,0.00017969,0.99982
+145,Attrited Customer,59,M,1,College,Single,$60K - $80K,Blue,53,2,3,3,14979,0,14979,0.71,530,10,1,0,0.99639,0.00360825
+146,Attrited Customer,48,F,4,Uneducated,Married,Less than $40K,Blue,38,3,2,3,2732,0,2732,0.76,739,16,0.455,0,0.99518,0.00481999
+147,Existing Customer,41,F,2,Graduate,Single,Less than $40K,Blue,32,6,3,2,2250,2117,133,1.162,1617,31,2.875,0.941,0.00017987,0.99982
+148,Existing Customer,55,M,2,Graduate,Married,$120K +,Blue,50,3,2,0,10916,1536,9380,1.317,1592,34,1,0.141,4.1986E-05,0.99996
+149,Existing Customer,47,F,4,Graduate,Married,Unknown,Blue,36,4,1,3,5349,1228,4121,0.728,1343,30,1.308,0.23,9.7154E-05,0.9999
+150,Existing Customer,41,M,2,High School,Married,$80K - $120K,Blue,24,4,1,3,9366,1104,8262,0.572,1303,39,0.625,0.118,9.0056E-05,0.99991
+151,Existing Customer,40,M,3,High School,Single,$80K - $120K,Blue,28,5,1,0,21617,0,21617,1.047,1351,22,0.467,0,2.0494E-05,0.99998
+152,Existing Customer,68,M,1,Graduate,Married,Unknown,Blue,56,5,2,3,13860,1652,12208,1.255,1910,32,1.909,0.119,0.00017969,0.99982
+153,Existing Customer,50,F,1,Graduate,Single,$40K - $60K,Silver,31,2,2,3,18386,0,18386,0.868,1298,22,0.571,0,0.00016236,0.99984
+154,Existing Customer,47,M,4,Uneducated,Single,$60K - $80K,Blue,41,6,2,2,2405,1540,865,0.469,1087,29,1.231,0.64,0.00012274,0.99988
+155,Existing Customer,53,F,1,College,Married,Less than $40K,Blue,47,4,2,3,2154,930,1224,2.121,1439,26,1.364,0.432,0.0001747,0.99983
+156,Existing Customer,42,F,5,Unknown,Married,$40K - $60K,Blue,36,3,3,3,2038,0,2038,0.786,1238,28,0.75,0,0.00034328,0.99966
+157,Existing Customer,48,F,4,High School,Single,$40K - $60K,Blue,38,6,1,3,8135,0,8135,1.373,1716,29,0.812,0,9.4447E-05,0.99991
+158,Existing Customer,49,M,1,Doctorate,Married,$120K +,Blue,38,6,1,3,9364,618,8746,0.554,1099,27,0.8,0.066,0.00012583,0.99987
+159,Existing Customer,44,F,2,Uneducated,Married,Unknown,Silver,35,4,3,2,32643,0,32643,1.3,1058,24,2.429,0,0.00016711,0.99983
+160,Existing Customer,43,F,4,Graduate,Divorced,Less than $40K,Blue,34,2,3,1,3195,1954,1241,0.971,1285,29,0.706,0.612,0.00011377,0.99989
+161,Existing Customer,56,M,0,High School,Married,$80K - $120K,Blue,43,5,2,1,2852,1024,1828,1.009,1651,28,1,0.359,5.7261E-05,0.99994
+162,Existing Customer,59,F,1,College,Single,Unknown,Blue,36,2,3,3,4224,1305,2919,0.852,1152,31,0.824,0.309,0.00027607,0.99972
+163,Existing Customer,46,M,1,Uneducated,Married,$60K - $80K,Blue,36,3,2,2,20459,2071,18388,1.248,1767,38,2.167,0.101,0.00010985,0.99989
+164,Existing Customer,47,F,4,Unknown,Divorced,Less than $40K,Blue,41,6,5,3,3482,2114,1368,0.508,1039,24,0.263,0.607,0.00038948,0.99961
+165,Existing Customer,50,F,4,Uneducated,Married,$40K - $60K,Blue,40,5,2,3,3065,1570,1495,1.077,1130,28,1.333,0.512,0.00020643,0.99979
+166,Existing Customer,51,F,3,Uneducated,Married,Less than $40K,Blue,43,3,1,2,2185,1761,424,0.682,1645,30,0.429,0.806,5.8763E-05,0.99994
+167,Existing Customer,47,F,3,Uneducated,Married,Less than $40K,Blue,36,4,1,0,1611,746,865,0.993,1413,29,0.706,0.463,2.1676E-05,0.99998
+168,Existing Customer,58,F,4,Uneducated,Married,Less than $40K,Blue,47,3,3,3,2822,2173,649,1.456,1218,23,2.286,0.77,0.0003262,0.99967
+169,Attrited Customer,46,M,5,Graduate,Single,$80K - $120K,Blue,33,6,3,3,32975,2517,30458,0.658,597,17,0.7,0.076,0.99681,0.00319072
+170,Existing Customer,53,M,3,High School,Married,$60K - $80K,Blue,47,5,2,2,1438.3,0,1438.3,0.776,2184,53,0.828,0,0.00011482,0.99989
+171,Existing Customer,45,F,4,Uneducated,Divorced,Unknown,Blue,36,4,3,3,15875,1719,14156,0.86,1592,37,1.467,0.108,0.0003262,0.99967
+172,Existing Customer,52,F,1,High School,Married,Less than $40K,Blue,45,6,3,3,6703,893,5810,0.567,1388,28,0.75,0.133,0.00027604,0.99972
+173,Attrited Customer,53,M,2,Unknown,Married,$80K - $120K,Blue,36,2,2,1,3212,0,3212,0.713,757,20,0.25,0,0.98692,0.01308
+174,Existing Customer,50,M,2,High School,Married,$80K - $120K,Silver,45,3,1,3,34516,1260,33256,0.588,1504,34,0.789,0.037,8.1371E-05,0.99992
+175,Existing Customer,41,F,3,High School,Married,$40K - $60K,Blue,36,4,1,2,9797,1434,8363,0.644,1503,34,0.478,0.146,5.5559E-05,0.99994
+176,Existing Customer,45,F,5,Graduate,Divorced,$40K - $60K,Blue,36,5,2,2,10400,1777,8623,0.791,1105,28,0.867,0.171,0.00011751,0.99988
+177,Existing Customer,53,M,3,Uneducated,Married,$80K - $120K,Blue,42,2,1,2,26792,1836,24956,1.432,2398,47,0.88,0.069,5.8763E-05,0.99994
+178,Existing Customer,67,F,1,Graduate,Married,Less than $40K,Blue,56,4,3,2,3006,2517,489,2.053,1661,32,1,0.837,0.00016883,0.99983
+179,Existing Customer,57,F,2,Uneducated,Single,$40K - $60K,Silver,36,6,3,0,19482,1072,18410,0.706,1421,22,1.444,0.055,6.1645E-05,0.99994
+180,Existing Customer,59,F,1,Uneducated,Married,$40K - $60K,Blue,36,4,2,3,3356,985,2371,0.35,999,28,0.556,0.294,0.00018475,0.99982
+181,Existing Customer,45,M,2,Uneducated,Married,$40K - $60K,Blue,34,3,2,1,5771,2248,3523,1.791,1387,18,0.8,0.39,7.0576E-05,0.99993
+182,Existing Customer,51,M,3,Graduate,Married,$80K - $120K,Blue,36,6,2,3,11106,2107,8999,0.948,1243,24,1,0.19,0.00019864,0.9998
+183,Existing Customer,59,F,1,Uneducated,Married,Less than $40K,Blue,54,5,3,0,2890,2001,889,1.334,1860,36,1,0.692,6.4038E-05,0.99994
+184,Existing Customer,53,M,1,Graduate,Married,$60K - $80K,Blue,45,6,2,2,3380,1701,1679,0.747,1502,25,1.273,0.503,0.00010684,0.99989
+185,Existing Customer,47,M,3,Graduate,Married,$60K - $80K,Blue,36,2,1,2,21331,1251,20080,0.949,1460,50,1.083,0.059,5.7151E-05,0.99994
+186,Existing Customer,49,F,3,Uneducated,Single,Unknown,Blue,38,6,2,1,12860,0,12860,0.646,1348,27,0.286,0,7.3235E-05,0.99993
+187,Existing Customer,49,M,3,Post-Graduate,Single,$80K - $120K,Blue,33,3,1,0,6278,462,5816,1.161,1087,33,0.941,0.074,2.4806E-05,0.99998
+188,Existing Customer,60,F,0,College,Single,Less than $40K,Blue,55,5,1,3,1438.3,738,700.3,0.782,1226,33,0.571,0.513,7.7286E-05,0.99992
+189,Existing Customer,50,F,2,High School,Married,Less than $40K,Blue,36,5,1,2,9355,1626,7729,0.701,1230,28,0.867,0.174,5.3542E-05,0.99995
+190,Existing Customer,41,F,2,Post-Graduate,Married,Unknown,Blue,31,6,1,3,20758,0,20758,0.688,1555,32,0.684,0,0.000109,0.99989
+191,Existing Customer,57,M,1,Graduate,Married,$80K - $120K,Blue,47,5,3,1,14612,1976,12636,1.768,1827,24,3,0.135,0.00010182,0.9999
+192,Existing Customer,43,M,4,Graduate,Unknown,$80K - $120K,Blue,27,5,2,0,27259,0,27259,0.731,1376,35,0.591,0,4.4033E-05,0.99996
+193,Existing Customer,57,F,3,Graduate,Married,Less than $40K,Blue,47,4,2,3,6347,1594,4753,0.896,1771,37,0.762,0.251,0.00019864,0.9998
+194,Existing Customer,54,M,3,Doctorate,Married,$120K +,Blue,41,3,3,0,21592,1676,19916,1.097,1873,52,0.529,0.078,9.9638E-05,0.9999
+195,Existing Customer,51,F,5,Post-Graduate,Married,Less than $40K,Blue,44,5,1,1,3449,1598,1851,0.971,1679,42,0.556,0.463,4.0349E-05,0.99996
+196,Existing Customer,47,F,3,High School,Married,Less than $40K,Blue,34,2,1,2,6028,799,5229,0.819,1002,22,0.571,0.133,5.5559E-05,0.99994
+197,Existing Customer,41,M,0,High School,Unknown,$120K +,Blue,36,3,2,3,18214,1998,16216,0.829,1344,21,1.1,0.11,0.0001597,0.99984
+198,Existing Customer,53,M,3,Uneducated,Married,$80K - $120K,Blue,43,3,3,1,16393,1423,14970,1.642,1461,42,0.75,0.087,0.00011574,0.99988
+199,Attrited Customer,68,M,0,High School,Married,Less than $40K,Blue,52,1,3,2,1438.3,900,538.3,0.743,760,21,0.615,0.626,0.99338,0.00662
+200,Existing Customer,59,M,1,College,Married,$60K - $80K,Blue,36,4,1,2,7871,1687,6184,1.242,1428,22,1.444,0.214,5.0261E-05,0.99995
+201,Existing Customer,48,M,4,Unknown,Married,$80K - $120K,Blue,36,5,3,0,5288,866,4422,0.869,1777,42,0.75,0.164,7.6492E-05,0.99992
+202,Existing Customer,44,M,5,Graduate,Married,$60K - $80K,Blue,32,4,5,3,11376,2006,9370,0.619,1302,27,0.8,0.176,0.00034882,0.99965
+203,Existing Customer,48,M,3,College,Married,$80K - $120K,Blue,41,4,5,3,12302,1632,10670,1.509,1483,41,0.519,0.133,0.00034086,0.99966
+204,Existing Customer,47,M,4,Graduate,Married,$60K - $80K,Silver,33,3,2,1,34516,1679,32837,0.623,1060,27,0.5,0.049,6.5045E-05,0.99993
+205,Existing Customer,47,M,2,Graduate,Married,$60K - $80K,Silver,32,4,2,2,34516,1468,33048,0.505,1330,32,0.684,0.043,0.00010284,0.9999
+206,Existing Customer,43,F,1,High School,Divorced,Less than $40K,Silver,35,3,2,2,10514,1580,8934,0.504,1229,27,0.8,0.15,9.3844E-05,0.99991
+207,Attrited Customer,55,F,2,Graduate,Married,Less than $40K,Blue,43,2,4,3,1438.3,0,1438.3,0.707,886,27,0.421,0,0.99727,0.00272694
+208,Attrited Customer,59,M,2,Post-Graduate,Married,$60K - $80K,Blue,46,3,3,3,1438.3,0,1438.3,0.688,844,24,0.5,0,0.9972,0.00280059
+209,Existing Customer,63,M,1,Graduate,Married,$40K - $60K,Blue,56,2,1,2,2619,1779,840,1.259,1450,37,0.947,0.679,5.1697E-05,0.99995
+210,Existing Customer,58,M,2,College,Married,$120K +,Blue,53,2,3,0,24407,2395,22012,1.071,2311,48,0.714,0.098,6.4511E-05,0.99994
+211,Existing Customer,53,F,2,High School,Married,Less than $40K,Blue,36,4,1,2,2377,1649,728,0.93,1378,26,1.167,0.694,5.3542E-05,0.99995
+212,Existing Customer,59,M,0,Unknown,Unknown,$80K - $120K,Silver,40,3,2,3,34516,1359,33157,1.327,1033,26,1.364,0.039,0.00016316,0.99984
+213,Existing Customer,52,M,3,Graduate,Married,$120K +,Blue,47,5,3,3,11086,2207,8879,0.869,1523,40,1.105,0.199,0.0003139,0.99969
+214,Existing Customer,48,M,3,High School,Single,$60K - $80K,Blue,36,4,2,2,11432,2517,8915,0.615,1374,37,0.762,0.22,0.00011482,0.99989
+215,Existing Customer,43,M,4,High School,Married,$40K - $60K,Blue,36,5,3,2,13258,1721,11537,0.908,1080,21,1.333,0.13,0.00018339,0.99982
+216,Existing Customer,48,M,2,College,Single,Less than $40K,Blue,36,3,2,3,2571,1955,616,0.531,1234,24,0.714,0.76,0.00018612,0.99981
+217,Existing Customer,43,F,4,Graduate,Single,Less than $40K,Blue,31,5,2,0,5781,1168,4613,0.638,1600,32,0.455,0.202,4.4033E-05,0.99996
+218,Existing Customer,44,M,4,Unknown,Married,$60K - $80K,Blue,30,5,1,2,7872,2509,5363,0.971,1155,32,0.882,0.319,6.3492E-05,0.99994
+219,Existing Customer,41,M,3,High School,Married,$80K - $120K,Blue,35,6,1,2,34516,1202,33314,0.603,1353,33,0.737,0.035,5.5559E-05,0.99994
+220,Existing Customer,44,F,3,Uneducated,Divorced,Less than $40K,Silver,38,4,1,3,11127,1835,9292,2.368,1546,25,1.273,0.165,8.9305E-05,0.99991
+221,Existing Customer,50,M,2,Unknown,Single,$40K - $60K,Blue,43,2,1,3,1857,1603,254,0.579,1590,43,1.263,0.863,0.00010183,0.9999
+222,Existing Customer,60,F,1,Uneducated,Married,Less than $40K,Blue,36,5,1,0,1913,1272,641,1.008,1448,22,1,0.665,1.9607E-05,0.99998
+223,Existing Customer,44,M,4,Graduate,Single,$80K - $120K,Blue,24,5,3,0,3839,2295,1544,0.569,1271,24,0.714,0.598,6.9589E-05,0.99993
+224,Existing Customer,48,F,3,Graduate,Divorced,$40K - $60K,Blue,39,6,2,3,2115,1141,974,0.616,1223,20,0.538,0.539,0.00019864,0.9998
+225,Existing Customer,44,F,2,Graduate,Divorced,Less than $40K,Blue,27,5,2,2,1438.3,679,759.3,0.859,1117,29,1.071,0.472,0.00011382,0.99989
+226,Existing Customer,41,M,2,High School,Single,$80K - $120K,Blue,28,4,3,0,27756,1789,25967,0.75,994,24,0.846,0.064,6.4505E-05,0.99994
+227,Existing Customer,45,M,3,College,Single,$60K - $80K,Blue,32,4,1,2,1438.3,0,1438.3,0.81,1468,26,0.625,0,5.5564E-05,0.99994
+228,Existing Customer,47,F,2,Uneducated,Divorced,Less than $40K,Silver,34,6,4,2,13878,2222,11656,0.853,1658,38,0.357,0.16,0.00020195,0.9998
+229,Existing Customer,51,F,2,Graduate,Married,Less than $40K,Blue,36,3,1,3,3106,1304,1802,0.604,1368,38,0.407,0.42,9.2637E-05,0.99991
+230,Existing Customer,51,M,2,Graduate,Married,$120K +,Blue,44,4,3,3,34516,1666,32850,0.613,1218,18,0.8,0.048,0.00030251,0.9997
+231,Attrited Customer,60,F,1,Uneducated,Married,$40K - $60K,Blue,50,4,4,3,1438.3,1025,413.3,0.838,702,12,0.714,0.713,0.99717,0.00282527
+232,Existing Customer,57,M,2,Unknown,Married,$80K - $120K,Blue,46,2,3,0,18871,1740,17131,1.727,1516,21,2,0.092,7.2936E-05,0.99993
+233,Existing Customer,41,M,5,Graduate,Single,$120K +,Blue,29,5,2,2,5207,1748,3459,1.073,1310,26,1,0.336,0.00011751,0.99988
+234,Existing Customer,44,M,3,Post-Graduate,Divorced,$80K - $120K,Blue,36,6,2,2,17965,1644,16321,0.921,1767,50,0.923,0.092,0.00013897,0.99986
+235,Existing Customer,43,M,1,College,Single,$60K - $80K,Blue,37,6,3,3,2733,1819,914,0.767,933,25,0.923,0.666,0.00027607,0.99972
+236,Existing Customer,55,M,2,College,Married,$60K - $80K,Blue,48,4,3,2,8863,1301,7562,1.207,1512,27,1.455,0.147,0.00017488,0.99983
+237,Attrited Customer,52,M,1,Uneducated,Married,$80K - $120K,Blue,36,2,3,3,1857,1833,24,0.723,829,17,0.7,0.987,0.99659,0.00341249
+238,Existing Customer,44,M,3,Graduate,Unknown,$80K - $120K,Blue,33,3,3,3,34516,0,34516,0.483,1120,27,0.35,0,0.0003139,0.99969
+239,Existing Customer,41,M,2,Uneducated,Married,$40K - $60K,Blue,30,5,3,3,11107,1222,9885,0.538,1506,33,0.941,0.11,0.00031104,0.99969
+240,Existing Customer,44,M,4,Unknown,Single,$80K - $120K,Blue,34,4,1,2,21573,1585,19988,0.621,1384,36,2.273,0.073,6.3492E-05,0.99994
+241,Attrited Customer,53,F,2,Unknown,Married,Less than $40K,Blue,33,2,3,3,2859,2517,342,0.993,817,30,0.667,0.88,0.997,0.00299743
+242,Existing Customer,39,M,2,High School,Single,$80K - $120K,Blue,36,4,2,2,5269,1475,3794,1.148,2094,25,0.667,0.28,0.00011065,0.99989
+243,Attrited Customer,49,M,5,College,Married,$40K - $60K,Blue,45,2,2,3,1438.3,0,1438.3,0.734,815,21,0.615,0,0.99482,0.00518
+244,Attrited Customer,45,F,2,College,Married,Less than $40K,Blue,36,1,3,2,3387,0,3387,0.789,510,24,0.6,0,0.99432,0.00568
+245,Existing Customer,54,M,2,Graduate,Married,$80K - $120K,Blue,46,6,2,3,1982,1289,693,0.939,1377,49,0.69,0.65,0.00019143,0.99981
+246,Existing Customer,49,M,3,Uneducated,Single,$80K - $120K,Blue,43,2,2,2,4645,1650,2995,0.912,1193,33,0.65,0.355,0.00012144,0.99988
+247,Existing Customer,46,F,3,Doctorate,Single,Unknown,Blue,36,6,3,2,2189,1666,523,0.343,1287,36,0.636,0.761,0.00027008,0.99973
+248,Attrited Customer,46,M,4,High School,Married,$120K +,Blue,30,3,3,3,2442,0,2442,0.98,701,19,0.727,0,0.99677,0.00323086
+249,Existing Customer,47,M,3,Graduate,Married,$60K - $80K,Blue,38,4,1,2,21304,1532,19772,1.018,1770,25,0.923,0.072,5.7151E-05,0.99994
+250,Existing Customer,44,M,2,Doctorate,Single,$60K - $80K,Blue,36,5,1,2,7577,2480,5097,0.435,1409,35,0.167,0.327,7.9702E-05,0.99992
+251,Existing Customer,50,M,3,Post-Graduate,Single,$120K +,Blue,31,4,1,2,3234,1486,1748,0.868,1354,28,0.647,0.459,6.7249E-05,0.99993
+252,Existing Customer,73,M,0,High School,Married,$40K - $60K,Blue,36,5,3,2,4469,1125,3344,1.363,1765,34,1.615,0.252,0.00015005,0.99985
+253,Existing Customer,56,M,3,Unknown,Unknown,$40K - $60K,Blue,46,6,3,4,2910,709,2201,0.538,1192,27,0.588,0.244,0.00058851,0.99941
+254,Attrited Customer,59,M,0,High School,Single,$40K - $60K,Blue,48,2,4,3,3616,1054,2562,0.616,687,17,0.545,0.291,0.99673,0.00326713
+255,Existing Customer,70,M,0,High School,Married,Less than $40K,Blue,56,3,2,3,3252,1495,1757,0.581,1227,15,0.875,0.46,0.0001597,0.99984
+256,Existing Customer,55,F,2,High School,Married,Less than $40K,Blue,36,4,3,3,2358,1152,1206,0.969,1737,26,1.6,0.489,0.00029408,0.99971
+257,Existing Customer,43,M,4,Unknown,Single,$60K - $80K,Blue,36,4,1,0,22322,953,21369,0.769,1348,34,1.125,0.043,2.342E-05,0.99998
+258,Existing Customer,45,M,1,Uneducated,Single,$120K +,Blue,39,4,2,2,3133,1510,1623,0.609,1435,38,0.462,0.482,0.00010985,0.99989
+259,Existing Customer,45,F,2,Uneducated,Single,$40K - $60K,Blue,35,2,3,0,3540,849,2691,0.456,1321,28,0.75,0.24,6.8225E-05,0.99993
+260,Existing Customer,40,M,1,Graduate,Married,$40K - $60K,Blue,23,6,3,2,6990,1378,5612,0.73,1479,29,0.611,0.197,0.00016883,0.99983
+261,Existing Customer,36,M,2,College,Unknown,$80K - $120K,Blue,22,2,2,3,34516,1652,32864,0.854,1283,39,1.294,0.048,0.00018612,0.99981
+262,Attrited Customer,59,F,0,Post-Graduate,Married,$40K - $60K,Blue,40,1,4,1,1438.3,0,1438.3,1.038,689,23,0.353,0,0.9925,0.0075
+263,Existing Customer,43,M,4,Unknown,Married,$60K - $80K,Blue,35,6,3,2,24396,1171,23225,0.655,965,17,1.125,0.048,0.00020735,0.99979
+264,Existing Customer,46,F,1,Unknown,Married,Less than $40K,Blue,36,2,3,2,2474,2143,331,1.53,1541,40,1,0.866,0.00018558,0.99981
+265,Existing Customer,41,M,2,Uneducated,Married,$40K - $60K,Blue,32,5,1,3,5214,795,4419,0.707,1258,23,1.3,0.152,9.5249E-05,0.9999
+266,Existing Customer,51,F,2,Graduate,Married,Less than $40K,Blue,46,5,2,2,5207,1650,3557,0.708,1339,20,0.538,0.317,0.00011382,0.99989
+267,Existing Customer,51,F,3,Unknown,Unknown,Less than $40K,Blue,25,2,2,2,9512,1082,8430,0.701,1007,22,1.444,0.114,0.00012982,0.99987
+268,Existing Customer,43,F,4,Graduate,Divorced,Unknown,Blue,23,6,3,2,3187,2430,757,0.617,1387,33,1.357,0.762,0.00018864,0.99981
+269,Attrited Customer,64,F,0,High School,Married,$40K - $60K,Blue,53,1,3,3,3353,0,3353,1.021,960,18,0.385,0,0.99605,0.00394582
+270,Existing Customer,54,M,5,Graduate,Married,$60K - $80K,Blue,38,3,3,3,2290,1434,856,0.923,1119,18,3.5,0.626,0.00031231,0.99969
+271,Existing Customer,48,M,3,Unknown,Single,$40K - $60K,Blue,43,6,1,3,5279,1115,4164,0.549,1642,41,0.519,0.211,0.00010566,0.99989
+272,Existing Customer,40,M,2,Uneducated,Divorced,$60K - $80K,Blue,29,5,3,0,23603,0,23603,0.795,1382,31,1.067,0,6.8225E-05,0.99993
+273,Existing Customer,57,M,0,Uneducated,Married,$40K - $60K,Blue,45,6,2,2,2601,0,2601,0.814,1232,32,0.684,0,0.00010043,0.9999
+274,Existing Customer,45,M,4,Graduate,Single,$80K - $120K,Blue,40,4,3,0,6363,1029,5334,0.838,1542,16,1.286,0.162,6.9589E-05,0.99993
+275,Existing Customer,41,M,3,High School,Single,$80K - $120K,Blue,36,4,3,3,8029,1576,6453,0.826,1094,32,0.524,0.196,0.00030516,0.99969
+276,Existing Customer,42,F,4,Uneducated,Married,Less than $40K,Blue,31,2,2,2,2410,1769,641,0.759,1217,30,1.143,0.734,0.00012274,0.99988
+277,Attrited Customer,45,M,2,Graduate,Single,$60K - $80K,Blue,36,1,1,2,3401,0,3401,0.898,744,18,1,0,0.98217,0.01783
+278,Existing Customer,42,F,4,Uneducated,Married,Less than $40K,Blue,23,4,2,0,2260,1007,1253,0.84,1614,33,0.737,0.446,4.5275E-05,0.99995
+279,Existing Customer,47,M,4,Uneducated,Divorced,$80K - $120K,Blue,30,5,2,2,17682,2481,15201,1.302,1747,31,1.214,0.14,0.00012274,0.99988
+280,Existing Customer,48,F,4,High School,Married,$40K - $60K,Blue,42,3,1,3,4206,1100,3106,0.587,1144,22,1,0.262,9.4447E-05,0.99991
+281,Existing Customer,43,M,1,Graduate,Single,$80K - $120K,Silver,37,4,3,2,34516,1440,33076,1.117,1575,34,2.4,0.042,0.00015255,0.99985
+282,Existing Customer,41,M,4,High School,Unknown,$80K - $120K,Blue,36,4,3,0,23018,2168,20850,0.859,1463,24,1.667,0.094,6.765E-05,0.99993
+283,Existing Customer,54,F,1,Uneducated,Married,$40K - $60K,Blue,44,5,2,3,5556,1711,3845,1.434,1706,21,1.625,0.308,0.00018475,0.99982
+284,Attrited Customer,54,F,2,High School,Married,Unknown,Blue,44,3,3,1,6094,0,6094,1.129,909,14,0.273,0,0.99061,0.00939
+285,Existing Customer,61,M,0,Graduate,Married,$40K - $60K,Blue,52,3,1,2,2939,1999,940,2.145,2434,33,1.538,0.68,4.7263E-05,0.99995
+286,Existing Customer,61,M,0,Uneducated,Married,$80K - $120K,Blue,48,2,1,0,5362,1274,4088,1.015,1876,41,0.783,0.238,1.7925E-05,0.99998
+287,Attrited Customer,48,M,2,High School,Married,$120K +,Blue,36,3,3,3,27126,0,27126,0.953,1000,25,0.786,0,0.99661,0.00338788
+288,Existing Customer,45,F,4,Graduate,Single,Less than $40K,Blue,36,6,3,2,3342,2517,825,0.771,1139,30,0.765,0.753,0.00018864,0.99981
+289,Attrited Customer,54,F,4,Graduate,Married,Unknown,Blue,40,6,2,2,2532,2221,311,0.491,799,21,0.235,0.877,0.99169,0.00831
+290,Existing Customer,54,F,3,Doctorate,Married,Unknown,Blue,46,2,2,3,1900,1376,524,0.89,1881,45,0.607,0.724,0.00028744,0.99971
+291,Existing Customer,44,M,3,Graduate,Single,$60K - $80K,Blue,37,2,3,2,14546,1703,12843,0.955,1273,27,0.588,0.117,0.00018665,0.99981
+292,Existing Customer,50,F,4,Doctorate,Single,Unknown,Blue,36,2,3,2,2521,1608,913,0.587,1328,33,0.571,0.638,0.00027297,0.99973
+293,Existing Customer,55,M,2,Doctorate,Married,$60K - $80K,Blue,36,3,4,3,16427,1682,14745,0.631,1579,36,1.118,0.102,0.00052896,0.99947
+294,Existing Customer,48,M,2,Graduate,Unknown,$40K - $60K,Blue,36,5,1,2,13068,1718,11350,0.607,937,28,0.556,0.131,5.5077E-05,0.99994
+295,Existing Customer,45,M,2,College,Single,$60K - $80K,Blue,33,6,3,0,23218,1814,21404,1.178,1749,37,2.083,0.078,6.4511E-05,0.99994
+296,Existing Customer,60,M,0,High School,Married,$40K - $60K,Blue,36,5,1,3,3281,837,2444,1.859,1424,29,1.417,0.255,7.7279E-05,0.99992
+297,Existing Customer,55,M,2,High School,Married,$40K - $60K,Blue,47,5,3,2,3096,2217,879,0.799,2011,41,0.783,0.716,0.00017486,0.99983
+298,Existing Customer,62,F,0,High School,Married,$40K - $60K,Blue,52,5,2,3,2052,1250,802,0.728,1208,31,0.632,0.609,0.0001597,0.99984
+299,Existing Customer,38,F,1,High School,Unknown,Less than $40K,Blue,30,2,3,0,1438.3,583,855.3,0.888,1259,24,1,0.405,6.0547E-05,0.99994
+300,Existing Customer,46,M,3,High School,Single,$40K - $60K,Blue,39,2,3,2,9432,1418,8014,0.612,1319,26,0.368,0.15,0.00018145,0.99982
+301,Existing Customer,50,M,0,High School,Single,$120K +,Silver,45,5,2,3,14938,2303,12635,0.804,949,27,2,0.154,0.0001443,0.99986
+302,Existing Customer,45,M,2,Uneducated,Married,$60K - $80K,Blue,36,5,3,2,2221,1343,878,0.869,1338,30,1.308,0.605,0.00018494,0.99982
+303,Existing Customer,47,M,3,Post-Graduate,Divorced,$60K - $80K,Blue,37,6,3,0,5731,1577,4154,0.657,1554,26,0.444,0.275,8.1018E-05,0.99992
+304,Existing Customer,48,M,4,College,Married,$60K - $80K,Gold,33,2,2,3,34516,2061,32455,0.722,1350,32,0.455,0.06,0.00022488,0.99978
+305,Existing Customer,35,M,3,Uneducated,Married,$60K - $80K,Blue,22,5,2,2,6985,1130,5855,0.963,1694,44,0.76,0.162,0.00012144,0.99988
+306,Existing Customer,51,M,2,Graduate,Married,$120K +,Blue,42,3,3,0,24221,1707,22514,0.816,1678,40,0.538,0.07,6.6354E-05,0.99993
+307,Existing Customer,36,F,3,High School,Married,Unknown,Blue,24,4,1,1,15439,0,15439,0.742,2069,43,0.536,0,3.3505E-05,0.99997
+308,Existing Customer,47,M,4,Graduate,Single,$80K - $120K,Blue,36,6,3,2,21637,2030,19607,0.776,1222,23,0.438,0.094,0.00018864,0.99981
+309,Existing Customer,52,M,2,Graduate,Single,$120K +,Blue,37,2,3,2,14543,0,14543,0.788,1536,37,0.423,0,0.00017987,0.99982
+310,Existing Customer,43,F,4,Uneducated,Married,Less than $40K,Blue,36,2,1,1,9684,2475,7209,0.697,1400,31,2.1,0.256,3.5816E-05,0.99996
+311,Existing Customer,63,M,2,High School,Married,$40K - $60K,Blue,36,2,2,2,5007,930,4077,0.885,1050,28,1.154,0.186,0.00011065,0.99989
+312,Existing Customer,61,M,0,Graduate,Married,$60K - $80K,Blue,54,3,2,0,1616,1047,569,0.984,1389,33,1.2,0.648,3.6029E-05,0.99996
+313,Existing Customer,53,M,2,Uneducated,Single,$60K - $80K,Blue,40,5,2,2,19116,0,19116,0.656,1184,29,0.611,0,0.00011703,0.99988
+314,Existing Customer,53,F,3,Graduate,Married,Less than $40K,Blue,47,5,6,2,2759,2223,536,1.32,2093,42,1,0.806,0.00014734,0.99985
+315,Attrited Customer,57,M,3,Graduate,Married,$120K +,Blue,38,2,3,3,8249,1381,6868,0.798,678,11,0.833,0.167,0.99683,0.00317458
+316,Existing Customer,38,F,2,Graduate,Single,Unknown,Blue,31,2,3,2,14041,2154,11887,1.084,1467,29,1.417,0.153,0.00017987,0.99982
+317,Existing Customer,53,M,3,High School,Married,$60K - $80K,Blue,43,5,3,2,5264,2169,3095,0.374,1219,27,0.5,0.412,0.00018145,0.99982
+318,Existing Customer,63,F,0,Unknown,Married,Less than $40K,Blue,54,4,2,1,2420,1912,508,1.256,1730,36,0.565,0.79,6.4745E-05,0.99994
+319,Existing Customer,49,F,4,High School,Married,Less than $40K,Blue,43,4,2,0,2826,2070,756,0.541,1025,28,0.647,0.732,4.2806E-05,0.99996
+320,Existing Customer,45,M,2,High School,Married,$80K - $120K,Blue,34,5,5,2,12518,1539,10979,0.645,1165,33,0.833,0.123,0.0001953,0.9998
+321,Existing Customer,67,M,0,Graduate,Married,$40K - $60K,Blue,56,4,2,1,5876,1297,4579,1.012,2133,55,0.719,0.221,5.8902E-05,0.99994
+322,Existing Customer,48,M,3,Graduate,Single,$80K - $120K,Silver,37,3,2,3,34516,0,34516,0.448,1122,13,0.182,0,0.00017949,0.99982
+323,Existing Customer,51,F,2,Uneducated,Divorced,Less than $40K,Blue,38,4,1,2,9648,1926,7722,0.549,1083,22,1.75,0.2,5.663E-05,0.99994
+324,Existing Customer,52,M,2,High School,Single,$80K - $120K,Silver,40,3,3,3,34516,2177,32339,1.32,1234,23,1.875,0.063,0.00026573,0.99973
+325,Existing Customer,55,F,2,Uneducated,Married,Unknown,Blue,35,3,3,0,3025,2376,649,1.252,1277,23,1.875,0.785,6.8225E-05,0.99993
+326,Existing Customer,34,M,3,High School,Married,$60K - $80K,Blue,26,4,3,3,3265,2517,748,0.952,1843,35,0.944,0.771,0.00030516,0.99969
+327,Existing Customer,56,M,1,Uneducated,Married,$120K +,Blue,36,3,2,2,6041,1355,4686,0.685,1747,49,0.581,0.224,0.00010985,0.99989
+328,Existing Customer,44,F,2,Post-Graduate,Married,Less than $40K,Blue,36,3,3,2,2293,1823,470,0.617,1166,22,1.444,0.795,0.00021165,0.99979
+329,Existing Customer,47,M,3,Post-Graduate,Unknown,$80K - $120K,Blue,36,6,2,2,13399,2505,10894,0.627,1326,31,0.824,0.187,0.00013897,0.99986
+330,Existing Customer,46,F,3,Unknown,Married,Less than $40K,Blue,38,4,3,3,4317,2517,1800,0.944,1619,36,1,0.583,0.00034503,0.99965
+331,Existing Customer,43,F,3,Graduate,Single,$40K - $60K,Blue,29,5,2,0,3378,1069,2309,0.581,1285,16,0.333,0.316,4.3568E-05,0.99996
+332,Existing Customer,50,F,1,Graduate,Single,Less than $40K,Blue,36,4,1,3,5012,2242,2770,0.816,1142,28,1,0.447,8.6952E-05,0.99991
+333,Existing Customer,38,F,4,Uneducated,Single,Less than $40K,Blue,30,4,1,0,2569,1605,964,0.574,1190,46,0.643,0.625,2.1907E-05,0.99998
+334,Existing Customer,53,F,1,Graduate,Single,Less than $40K,Blue,45,3,1,2,3471,1785,1686,1.051,1052,24,0.714,0.514,5.1697E-05,0.99995
+335,Existing Customer,43,M,5,Graduate,Divorced,$120K +,Silver,31,5,3,3,34516,1699,32817,0.771,1628,38,0.727,0.049,0.0002822,0.99972
+336,Existing Customer,53,M,1,High School,Married,$120K +,Blue,36,6,3,2,3312,1844,1468,0.986,1740,32,0.882,0.557,0.00016413,0.99984
+337,Existing Customer,56,F,1,Graduate,Married,Less than $40K,Blue,38,4,3,3,2578,2462,116,1.707,1378,29,0.812,0.955,0.00028395,0.99972
+338,Attrited Customer,54,M,2,Unknown,Married,$40K - $60K,Blue,44,4,3,2,2902,2517,385,0.821,996,26,0.444,0.867,0.99497,0.00503
+339,Existing Customer,57,F,3,High School,Married,Less than $40K,Blue,39,3,2,1,2742,2321,421,1.315,1389,32,0.6,0.846,6.9242E-05,0.99993
+340,Existing Customer,62,M,1,High School,Married,Less than $40K,Blue,53,5,3,3,2077,1571,506,1.031,1365,38,1,0.756,0.00027604,0.99972
+341,Existing Customer,46,F,4,Graduate,Single,Less than $40K,Blue,40,5,1,2,6265,1942,4323,1.027,1715,43,0.87,0.31,5.7762E-05,0.99994
+342,Existing Customer,49,M,2,Uneducated,Married,$60K - $80K,Blue,44,6,3,0,7819,1560,6259,0.827,1582,25,0.786,0.2,6.8225E-05,0.99993
+343,Existing Customer,52,M,3,Graduate,Single,$80K - $120K,Blue,42,6,3,3,2731,1692,1039,0.62,1220,22,0.692,0.62,0.0003139,0.99969
+344,Attrited Customer,58,M,1,Uneducated,Married,$40K - $60K,Blue,36,2,4,3,1438.3,537,901.3,0.819,715,13,0.182,0.373,0.99717,0.00282527
+345,Existing Customer,54,M,0,High School,Married,$80K - $120K,Blue,36,3,1,2,16286,1710,14576,1.223,2552,49,1.227,0.105,4.5946E-05,0.99995
+346,Existing Customer,49,M,1,Graduate,Married,$120K +,Blue,39,3,2,3,34516,0,34516,0.507,1106,31,0.938,0,0.00017969,0.99982
+347,Existing Customer,58,F,3,High School,Married,Less than $40K,Blue,47,6,1,0,2609,2439,170,1.269,1731,34,1.833,0.935,2.0494E-05,0.99998
+348,Existing Customer,52,M,2,High School,Single,$60K - $80K,Blue,45,5,3,2,7567,1173,6394,0.541,1435,32,0.6,0.155,0.00017486,0.99983
+349,Existing Customer,41,M,5,High School,Married,$60K - $80K,Blue,33,5,3,3,22770,2517,20253,0.994,1882,38,0.652,0.111,0.00030361,0.9997
+350,Existing Customer,62,F,0,Uneducated,Married,Less than $40K,Blue,50,5,1,2,3791,1648,2143,1.227,2058,34,0.789,0.435,4.8595E-05,0.99995
+351,Existing Customer,54,M,2,Graduate,Married,Less than $40K,Blue,39,4,4,2,2702,2517,185,1.019,1658,32,1.462,0.932,0.00021738,0.99978
+352,Existing Customer,40,F,3,High School,Divorced,Less than $40K,Blue,35,3,1,3,2555,2117,438,1.049,1334,32,0.6,0.829,9.3448E-05,0.99991
+353,Existing Customer,43,M,3,Graduate,Married,$80K - $120K,Blue,26,5,3,2,2355,1090,1265,0.751,1441,29,0.812,0.463,0.00018665,0.99981
+354,Existing Customer,53,F,2,Graduate,Single,$40K - $60K,Blue,42,6,2,0,5332,0,5332,0.939,1371,39,1.167,0,4.1986E-05,0.99996
+355,Existing Customer,55,M,1,Uneducated,Single,$40K - $60K,Blue,49,6,3,2,1443,1375,68,0.683,1991,38,0.583,0.953,0.0001736,0.99983
+356,Existing Customer,46,M,4,Graduate,Single,$60K - $80K,Blue,39,6,2,3,10741,755,9986,1.166,1278,22,1.444,0.07,0.00020077,0.9998
+357,Existing Customer,41,M,1,Uneducated,Married,$60K - $80K,Blue,25,3,2,0,7984,1503,6481,0.797,1734,39,1.167,0.188,4.0521E-05,0.99996
+358,Existing Customer,49,M,3,Uneducated,Single,$60K - $80K,Blue,32,3,2,2,18584,2517,16067,0.703,1330,34,1.125,0.135,0.00012144,0.99988
+359,Existing Customer,61,F,0,Graduate,Married,Unknown,Blue,56,4,1,3,5585,1465,4120,1.503,1787,31,0.722,0.262,7.9494E-05,0.99992
+360,Existing Customer,46,M,2,Uneducated,Married,$80K - $120K,Blue,38,6,3,2,34516,2165,32351,0.837,1672,32,0.524,0.063,0.00018494,0.99982
+361,Existing Customer,50,F,1,Uneducated,Married,Less than $40K,Blue,43,6,3,4,1438.3,0,1438.3,1.068,1439,41,1.05,0,0.000498,0.9995
+362,Existing Customer,40,M,2,Graduate,Single,$80K - $120K,Blue,24,5,1,0,2478,2031,447,1.284,1558,31,0.938,0.82,2.0316E-05,0.99998
+363,Existing Customer,51,M,4,High School,Single,$120K +,Blue,46,6,3,3,34516,2274,32242,0.788,1795,47,0.679,0.066,0.00030842,0.99969
+364,Existing Customer,50,F,2,Graduate,Married,$40K - $60K,Blue,44,6,2,3,2339,1440,899,0.431,893,22,0.375,0.616,0.00019143,0.99981
+365,Existing Customer,47,F,2,Graduate,Married,Less than $40K,Blue,36,6,3,2,2726,0,2726,0.844,1099,27,0.588,0,0.00017987,0.99982
+366,Existing Customer,43,M,4,Unknown,Married,$120K +,Blue,39,3,3,3,14881,848,14033,0.762,1408,23,1.091,0.057,0.00034872,0.99965
+367,Existing Customer,36,F,4,Graduate,Married,$40K - $60K,Blue,36,6,3,3,1628,969,659,0.999,1893,15,2.75,0.595,0.00031726,0.99968
+368,Existing Customer,47,F,2,Graduate,Married,Less than $40K,Blue,34,5,2,2,3156,1644,1512,1.052,1151,31,1.385,0.521,0.00011382,0.99989
+369,Existing Customer,46,F,2,Graduate,Single,Less than $40K,Blue,41,5,3,0,4745,1270,3475,0.93,1519,31,0.938,0.268,6.6354E-05,0.99993
+370,Existing Customer,46,M,2,High School,Married,$120K +,Blue,36,5,3,2,19727,1785,17942,0.572,1245,25,0.786,0.09,0.00017486,0.99983
+371,Existing Customer,52,M,0,Uneducated,Married,$60K - $80K,Blue,36,3,3,2,22720,793,21927,0.685,1102,27,0.286,0.035,0.00015871,0.99984
+372,Existing Customer,43,M,4,Unknown,Married,$40K - $60K,Blue,36,5,3,0,8129,1799,6330,0.566,1402,33,0.737,0.221,7.6492E-05,0.99992
+373,Existing Customer,40,F,4,Graduate,Single,Less than $40K,Blue,27,6,2,3,3751,1521,2230,0.974,1060,30,1.308,0.405,0.00020077,0.9998
+374,Existing Customer,54,F,4,High School,Married,Less than $40K,Blue,36,3,5,3,1594,1411,183,0.817,1459,35,1.188,0.885,0.00034447,0.99966
+375,Existing Customer,55,F,1,High School,Single,Less than $40K,Blue,43,4,2,0,2569,1403,1166,0.886,1456,39,0.444,0.546,3.8311E-05,0.99996
+376,Existing Customer,49,F,4,Post-Graduate,Single,Unknown,Blue,44,6,3,2,18206,1586,16620,0.921,1439,48,1,0.087,0.00022196,0.99978
+377,Existing Customer,45,M,4,High School,Married,$40K - $60K,Blue,34,6,3,3,3104,1766,1338,0.828,1353,24,1.182,0.569,0.00030842,0.99969
+378,Existing Customer,49,M,3,Graduate,Married,$40K - $60K,Blue,41,5,3,2,2406,1560,846,0.751,1173,32,0.391,0.648,0.00018665,0.99981
+379,Existing Customer,63,M,1,Uneducated,Married,$80K - $120K,Blue,36,5,2,3,24571,1955,22616,1.174,1746,28,1,0.08,0.00018475,0.99982
+380,Existing Customer,40,F,3,High School,Single,Less than $40K,Gold,36,3,2,3,15534,726,14808,0.556,1279,28,0.867,0.047,0.00022248,0.99978
+381,Existing Customer,41,F,2,Graduate,Married,Less than $40K,Silver,33,4,2,0,12301,2250,10051,0.484,1307,29,0.261,0.183,3.7937E-05,0.99996
+382,Existing Customer,37,M,4,Graduate,Married,$80K - $120K,Blue,26,6,2,3,2846,1818,1028,0.711,1473,37,1.176,0.639,0.00020077,0.9998
+383,Existing Customer,58,M,2,Uneducated,Unknown,$120K +,Blue,49,6,2,3,9788,1794,7994,0.778,1805,37,0.762,0.183,0.00019683,0.9998
+384,Existing Customer,55,M,2,High School,Married,$60K - $80K,Blue,36,4,3,3,7231,2381,4850,0.996,1421,23,1.3,0.329,0.00029408,0.99971
+385,Existing Customer,53,F,1,High School,Married,Less than $40K,Blue,48,6,3,2,2324,1576,748,0.728,1272,37,1.312,0.678,0.00016413,0.99984
+386,Existing Customer,57,M,2,Graduate,Married,$80K - $120K,Blue,40,3,2,3,12208,1980,10228,0.616,1409,34,0.619,0.162,0.00019143,0.99981
+387,Attrited Customer,43,M,4,Post-Graduate,Unknown,$80K - $120K,Blue,30,2,5,3,5639,1547,4092,1.087,647,15,0.364,0.274,0.99761,0.00239178
+388,Existing Customer,58,M,1,Graduate,Married,$60K - $80K,Blue,46,3,3,2,10021,1617,8404,0.578,1275,25,0.667,0.161,0.00016883,0.99983
+389,Existing Customer,64,M,0,Unknown,Married,Less than $40K,Blue,56,6,1,0,2215,1915,300,0.794,1270,27,0.588,0.865,1.9163E-05,0.99998
+390,Existing Customer,54,F,2,Graduate,Married,Less than $40K,Blue,44,3,2,3,2027,1480,547,0.979,1702,37,0.947,0.73,0.00019143,0.99981
+391,Existing Customer,53,M,2,Graduate,Married,$60K - $80K,Blue,47,6,2,2,6363,1162,5201,0.644,1256,26,1,0.183,0.00011382,0.99989
+392,Existing Customer,39,F,3,College,Single,Less than $40K,Blue,25,6,1,2,3920,2008,1912,0.944,3178,53,0.656,0.512,5.5564E-05,0.99994
+393,Existing Customer,56,M,3,High School,Married,$60K - $80K,Blue,36,5,1,3,9226,1233,7993,1.521,1626,29,1.636,0.134,9.3448E-05,0.99991
+394,Existing Customer,54,F,4,Unknown,Divorced,Less than $40K,Blue,49,6,1,1,9376,1288,8088,0.597,1562,33,0.5,0.137,3.8289E-05,0.99996
+395,Existing Customer,59,F,1,Post-Graduate,Married,$40K - $60K,Blue,46,5,3,3,1944,1346,598,1.052,1960,57,0.727,0.692,0.00033411,0.99967
+396,Existing Customer,42,M,3,Uneducated,Single,$40K - $60K,Blue,36,3,1,0,9599,1554,8045,1.087,1154,38,1.235,0.162,2.1676E-05,0.99998
+397,Existing Customer,42,M,4,Graduate,Married,$60K - $80K,Silver,28,5,1,2,28202,843,27359,0.637,1629,38,0.727,0.03,5.2192E-05,0.99995
+398,Existing Customer,43,M,3,College,Unknown,$80K - $120K,Blue,39,3,3,1,24850,1662,23188,0.693,1226,25,0.923,0.067,0.00010944,0.99989
+399,Existing Customer,55,M,0,High School,Married,$120K +,Blue,49,5,3,3,3805,2233,1572,1.095,1743,27,0.929,0.587,0.00025237,0.99975
+400,Existing Customer,52,M,1,Uneducated,Single,$80K - $120K,Blue,37,5,2,2,2733,1306,1427,0.791,1139,39,0.444,0.478,0.00010985,0.99989
+401,Existing Customer,46,M,1,Uneducated,Unknown,$40K - $60K,Blue,27,6,3,3,12781,1253,11528,0.638,1073,21,0.4,0.098,0.00029196,0.99971
+402,Attrited Customer,57,M,2,Uneducated,Married,$120K +,Blue,40,3,3,3,3106,1120,1986,1.045,683,17,0.7,0.361,0.9968,0.00320374
+403,Existing Customer,48,M,3,College,Married,$80K - $120K,Blue,42,3,3,0,7477,0,7477,0.511,1159,32,0.684,0,6.6941E-05,0.99993
+404,Existing Customer,45,M,4,Unknown,Married,$120K +,Blue,33,6,1,3,34516,2086,32430,0.986,1859,47,0.958,0.06,0.00010679,0.99989
+405,Existing Customer,48,M,2,High School,Married,$120K +,Blue,36,6,5,2,29963,2094,27869,0.648,1205,28,0.867,0.07,0.0001953,0.9998
+406,Existing Customer,47,M,1,Graduate,Single,$40K - $60K,Blue,36,5,3,0,6509,2033,4476,0.83,1409,37,0.37,0.312,6.2282E-05,0.99994
+407,Attrited Customer,42,M,3,College,Married,$60K - $80K,Blue,34,3,3,3,13450,0,13450,0.742,1000,18,0.059,0,0.99674,0.00326498
+408,Existing Customer,41,M,2,Graduate,Unknown,$60K - $80K,Silver,36,6,2,0,27000,0,27000,0.61,1209,39,0.3,0,3.7937E-05,0.99996
+409,Existing Customer,51,M,4,College,Married,$120K +,Silver,31,5,2,1,34516,1254,33262,0.869,1366,25,0.786,0.036,6.3239E-05,0.99994
+410,Existing Customer,55,F,2,Graduate,Single,Less than $40K,Blue,47,5,3,2,6347,0,6347,0.466,1161,44,0.375,0,0.00017987,0.99982
+411,Existing Customer,67,M,1,Uneducated,Married,$40K - $60K,Blue,49,4,3,2,3106,1675,1431,0.781,1512,38,0.407,0.539,0.0001736,0.99983
+412,Existing Customer,39,M,1,Graduate,Married,$60K - $80K,Blue,31,4,1,1,2536,913,1623,1.059,1750,35,1.333,0.36,3.1176E-05,0.99997
+413,Existing Customer,54,M,3,Post-Graduate,Single,$60K - $80K,Blue,35,6,3,0,13048,1954,11094,1.139,1170,24,0.846,0.15,8.1018E-05,0.99992
+414,Existing Customer,55,F,2,Unknown,Married,Less than $40K,Blue,37,3,3,1,2453,968,1485,1.081,2218,50,0.613,0.395,0.00011924,0.99988
+415,Existing Customer,47,M,3,High School,Married,$40K - $60K,Silver,36,3,2,2,16138,1249,14889,1.01,1198,33,0.833,0.077,0.00010374,0.9999
+416,Existing Customer,49,M,2,Post-Graduate,Married,$60K - $80K,Blue,38,3,2,0,8077,1965,6112,0.637,1329,26,0.444,0.243,4.9404E-05,0.99995
+417,Attrited Customer,42,F,2,Graduate,Married,Less than $40K,Blue,23,3,3,3,1929,1673,256,0.835,857,36,1.118,0.867,0.99671,0.00329379
+418,Existing Customer,57,M,2,Unknown,Single,$80K - $120K,Blue,36,3,3,2,3127,2517,610,0.589,1470,30,1.143,0.805,0.00019771,0.9998
+419,Existing Customer,44,M,5,Uneducated,Married,$60K - $80K,Blue,36,3,3,2,8645,1454,7191,0.708,1435,25,1.778,0.168,0.00019094,0.99981
+420,Existing Customer,56,M,3,Unknown,Single,$60K - $80K,Blue,49,3,1,3,1438.3,0,1438.3,0.503,1093,22,0.833,0,0.00010566,0.99989
+421,Attrited Customer,49,F,3,Graduate,Married,Less than $40K,Blue,38,6,3,2,2185,0,2185,0.727,715,20,0.818,0,0.99467,0.00533
+422,Existing Customer,45,M,3,Graduate,Single,$80K - $120K,Blue,32,5,2,2,24487,2517,21970,0.912,1512,42,0.909,0.103,0.00011811,0.99988
+423,Existing Customer,63,M,0,High School,Married,$60K - $80K,Blue,36,6,2,3,2567,0,2567,1.636,2399,43,0.955,0,0.0001597,0.99984
+424,Existing Customer,44,M,3,Graduate,Single,$80K - $120K,Blue,33,6,3,3,4131,785,3346,0.543,906,22,1.2,0.19,0.0003139,0.99969
+425,Existing Customer,44,F,4,College,Married,Less than $40K,Silver,37,3,2,2,10790,1930,8860,0.75,1052,16,1.286,0.179,0.00010486,0.9999
+426,Existing Customer,40,M,3,High School,Married,$40K - $60K,Blue,33,4,3,3,6884,1001,5883,0.786,975,11,0.833,0.145,0.00030516,0.99969
+427,Attrited Customer,39,M,2,Uneducated,Single,$60K - $80K,Blue,36,5,3,3,13961,1299,12662,0.842,783,20,0.667,0.093,0.9968,0.00320374
+428,Existing Customer,42,M,4,High School,Married,$80K - $120K,Blue,30,6,1,0,29801,1916,27885,0.781,990,21,0.909,0.064,2.0713E-05,0.99998
+429,Existing Customer,54,M,3,High School,Married,$120K +,Blue,43,4,1,1,13219,0,13219,0.576,1097,24,0.5,0,3.3505E-05,0.99997
+430,Attrited Customer,58,F,4,Unknown,Married,Less than $40K,Blue,46,2,3,3,2536,0,2536,0.917,901,35,0.522,0,0.99714,0.00285845
+431,Existing Customer,46,F,4,Graduate,Divorced,Less than $40K,Blue,36,5,3,1,9478,820,8658,0.64,1327,41,0.864,0.087,0.00011377,0.99989
+432,Existing Customer,47,F,4,Unknown,Divorced,$40K - $60K,Blue,34,6,1,2,3502,1851,1651,2.023,1814,31,0.722,0.529,6.3492E-05,0.99994
+433,Existing Customer,67,F,0,Unknown,Married,Unknown,Blue,56,4,3,3,10509,2388,8121,0.777,1365,34,1.429,0.227,0.00028535,0.99971
+434,Existing Customer,50,F,2,College,Divorced,Less than $40K,Blue,36,3,3,0,1491,0,1491,0.876,1058,34,0.889,0,6.4511E-05,0.99994
+435,Existing Customer,55,M,0,High School,Divorced,$60K - $80K,Blue,46,6,1,2,9734,0,9734,0.785,1476,38,0.9,0,4.5946E-05,0.99995
+436,Existing Customer,46,F,2,Graduate,Married,$40K - $60K,Blue,22,6,1,3,2305,1627,678,0.747,1230,36,0.565,0.706,9.2637E-05,0.99991
+437,Existing Customer,47,F,4,Uneducated,Married,$40K - $60K,Blue,36,3,1,3,14241,2081,12160,0.909,1581,44,0.833,0.146,9.9893E-05,0.9999
+438,Existing Customer,36,F,2,Unknown,Married,$40K - $60K,Blue,25,3,1,2,4789,1257,3532,1.134,1534,29,0.933,0.262,6.054E-05,0.99994
+439,Existing Customer,40,M,4,Doctorate,Divorced,$60K - $80K,Blue,34,4,2,3,23138,1727,21411,0.693,1612,39,1.438,0.075,0.00029051,0.99971
+440,Existing Customer,57,M,2,Unknown,Single,$80K - $120K,Blue,38,6,1,3,23008,2280,20728,0.674,1302,36,0.636,0.099,0.00010183,0.9999
+441,Existing Customer,48,M,1,Unknown,Divorced,$80K - $120K,Blue,36,3,1,0,3131,2517,614,0.602,1439,40,0.481,0.804,2.0961E-05,0.99998
+442,Existing Customer,58,F,3,Graduate,Married,Less than $40K,Blue,53,5,3,2,5798,1794,4004,0.564,1724,45,0.452,0.309,0.00018665,0.99981
+443,Existing Customer,48,M,3,Graduate,Single,$40K - $60K,Blue,36,5,2,3,6880,1390,5490,1.205,1784,35,0.944,0.202,0.00019864,0.9998
+444,Existing Customer,48,M,3,Graduate,Unknown,$80K - $120K,Platinum,41,3,2,2,34516,1531,32985,0.862,1156,29,1.071,0.044,0.00020517,0.99979
+445,Existing Customer,53,F,2,College,Married,$40K - $60K,Blue,34,6,2,1,2075,1469,606,1.322,2556,49,1.13,0.708,6.6734E-05,0.99993
+446,Existing Customer,50,M,2,Graduate,Married,$80K - $120K,Blue,44,3,3,0,4589,0,4589,0.845,1590,37,0.37,0,6.6354E-05,0.99993
+447,Attrited Customer,52,F,1,Graduate,Single,Less than $40K,Blue,40,1,2,2,2317,0,2317,1.005,884,19,0.727,0,0.99073,0.00927
+448,Attrited Customer,53,F,2,Uneducated,Single,Less than $40K,Blue,45,1,1,1,1981,1518,463,1.019,973,25,0.923,0.766,0.97155,0.02845
+449,Existing Customer,56,F,1,Graduate,Single,$40K - $60K,Blue,47,3,2,1,6038,0,6038,0.741,1447,30,0.875,0,6.4428E-05,0.99994
+450,Existing Customer,44,M,5,Unknown,Single,$80K - $120K,Blue,32,5,3,2,14910,877,14033,0.772,1150,26,0.625,0.059,0.00020412,0.9998
+451,Existing Customer,49,M,3,High School,Married,$80K - $120K,Blue,39,3,3,2,29659,1143,28516,0.512,1193,21,0.615,0.039,0.00018145,0.99982
+452,Attrited Customer,54,M,2,Graduate,Married,$60K - $80K,Blue,42,3,3,2,4320,0,4320,0.967,706,21,0.5,0,0.99447,0.00553
+453,Existing Customer,39,F,1,Unknown,Single,$40K - $60K,Blue,36,6,1,3,11213,0,11213,0.563,1257,23,0.643,0,9.5577E-05,0.9999
+454,Existing Customer,39,F,3,Uneducated,Divorced,Unknown,Blue,29,5,1,2,26181,0,26181,0.913,1303,35,0.75,0,5.8763E-05,0.99994
+455,Existing Customer,41,F,4,High School,Single,Less than $40K,Blue,31,3,1,0,5773,0,5773,0.67,1306,39,0.5,0,2.0713E-05,0.99998
+456,Attrited Customer,53,M,2,Uneducated,Married,$80K - $120K,Blue,36,1,3,3,4503,0,4503,0.659,748,20,0.429,0,0.9968,0.00320374
+457,Existing Customer,47,M,3,Uneducated,Married,$80K - $120K,Blue,36,6,2,2,29770,1565,28205,0.674,1774,42,2,0.053,0.00012144,0.99988
+458,Existing Customer,46,F,2,Post-Graduate,Married,Less than $40K,Blue,28,5,1,1,5014,1910,3104,0.863,1209,25,1.5,0.381,3.9082E-05,0.99996
+459,Existing Customer,53,F,1,High School,Married,Less than $40K,Blue,47,6,1,2,3445,1074,2371,0.67,1074,31,0.632,0.312,5.0256E-05,0.99995
+460,Existing Customer,60,M,1,Graduate,Married,$80K - $120K,Blue,50,6,2,2,23412,1078,22334,0.79,1786,50,0.786,0.046,0.00010684,0.99989
+461,Existing Customer,59,F,0,Graduate,Single,Less than $40K,Blue,46,4,1,2,3044,1611,1433,0.74,1456,36,0.714,0.529,4.7263E-05,0.99995
+462,Existing Customer,38,M,1,Unknown,Single,$60K - $80K,Blue,29,5,2,1,14596,2192,12404,0.898,1300,25,1.083,0.15,7.0819E-05,0.99993
+463,Existing Customer,56,M,4,Uneducated,Single,Less than $40K,Blue,36,3,2,2,3864,1654,2210,0.491,1470,42,0.235,0.428,0.00012274,0.99988
+464,Attrited Customer,35,M,3,Post-Graduate,Unknown,$80K - $120K,Blue,29,2,1,3,17030,1911,15119,0.528,715,25,0.562,0.112,0.99124,0.00876
+465,Existing Customer,50,M,3,Graduate,Single,$60K - $80K,Blue,44,4,2,3,23090,839,22251,1.326,1198,24,1,0.036,0.00019864,0.9998
+466,Existing Customer,53,M,2,Post-Graduate,Unknown,$80K - $120K,Blue,36,4,2,0,29205,1208,27997,0.957,1556,43,1.048,0.041,4.9404E-05,0.99995
+467,Existing Customer,63,M,2,Graduate,Married,$60K - $80K,Blue,49,5,2,3,14035,2061,11974,2.271,1606,30,1.5,0.147,0.00019143,0.99981
+468,Attrited Customer,43,F,2,Uneducated,Single,Less than $40K,Blue,24,2,3,2,2962,2517,445,1.046,929,31,0.409,0.85,0.99462,0.00538
+469,Existing Customer,46,M,2,Unknown,Married,$80K - $120K,Blue,30,6,3,0,18578,1385,17193,0.565,1606,54,0.421,0.075,7.2936E-05,0.99993
+470,Existing Customer,61,M,1,Uneducated,Single,$60K - $80K,Blue,46,5,3,2,2201,1138,1063,0.675,1199,32,0.6,0.517,0.0001736,0.99983
+471,Existing Customer,37,F,0,Post-Graduate,Married,Less than $40K,Blue,25,4,3,2,2061,1483,578,1.362,2400,60,0.622,0.72,0.00018162,0.99982
+472,Existing Customer,42,F,5,Doctorate,Married,Unknown,Blue,23,4,2,2,24602,1660,22942,0.588,1337,44,0.76,0.067,0.00017004,0.99983
+473,Existing Customer,41,M,2,Uneducated,Divorced,$120K +,Blue,29,3,2,2,15911,896,15015,0.954,1270,33,0.833,0.056,0.00011703,0.99988
+474,Attrited Customer,56,M,2,College,Single,$120K +,Blue,50,2,2,3,16867,0,16867,0.885,654,14,0.4,0,0.99466,0.00534
+475,Existing Customer,56,M,3,Graduate,Married,$60K - $80K,Blue,37,3,3,0,2783,1526,1257,0.942,1909,54,0.688,0.548,6.8853E-05,0.99993
+476,Attrited Customer,52,F,3,Post-Graduate,Single,Less than $40K,Blue,47,3,3,2,2972,0,2972,1.035,922,25,0.562,0,0.99547,0.00453174
+477,Existing Customer,40,F,3,High School,Single,$40K - $60K,Blue,36,5,3,2,5124,2235,2889,0.542,1158,42,0.355,0.436,0.00018145,0.99982
+478,Existing Customer,63,M,1,Graduate,Married,$40K - $60K,Blue,53,6,6,2,2880,2362,518,0.89,1323,26,0.444,0.82,0.00013328,0.99987
+479,Existing Customer,58,M,1,High School,Single,$40K - $60K,Blue,46,4,1,0,5579,0,5579,0.481,1025,35,0.667,0,1.8538E-05,0.99998
+480,Existing Customer,58,M,4,Unknown,Married,$60K - $80K,Blue,44,5,1,3,12010,2149,9861,0.801,1700,35,1.5,0.179,0.00010679,0.99989
+481,Existing Customer,46,M,2,Uneducated,Divorced,$80K - $120K,Blue,36,6,3,3,34516,1597,32919,0.858,1628,51,1.217,0.046,0.00031104,0.99969
+482,Existing Customer,37,F,1,Graduate,Married,$40K - $60K,Blue,29,5,2,2,4394,885,3509,1.04,1377,32,0.684,0.201,0.00010684,0.99989
+483,Existing Customer,46,M,4,Graduate,Single,$80K - $120K,Blue,35,4,3,3,18325,723,17602,0.815,1517,33,0.65,0.039,0.00031726,0.99968
+484,Existing Customer,46,F,4,Post-Graduate,Married,Less than $40K,Blue,37,5,3,2,3773,1972,1801,0.783,1528,25,1.083,0.523,0.00022196,0.99978
+485,Existing Customer,41,M,1,Graduate,Single,$80K - $120K,Blue,29,5,1,3,21684,1748,19936,0.715,1329,24,0.6,0.081,8.6952E-05,0.99991
+486,Existing Customer,48,F,3,High School,Divorced,$40K - $60K,Blue,40,4,1,2,1919,774,1145,0.965,1505,33,0.737,0.403,5.5559E-05,0.99994
+487,Existing Customer,49,F,3,Graduate,Single,$40K - $60K,Blue,33,5,3,2,9995,1713,8282,0.96,1172,38,0.462,0.171,0.00018665,0.99981
+488,Existing Customer,44,M,2,Graduate,Married,$80K - $120K,Blue,35,3,2,2,11910,2098,9812,1.16,1646,39,1.294,0.176,0.00011382,0.99989
+489,Existing Customer,39,F,3,College,Married,Less than $40K,Blue,36,4,2,0,2279,1529,750,1.26,1693,32,1.286,0.671,4.2358E-05,0.99996
+490,Existing Customer,57,M,1,College,Single,$40K - $60K,Blue,48,3,1,2,3539,0,3539,0.781,1336,23,0.211,0,5.0261E-05,0.99995
+491,Existing Customer,48,M,3,High School,Married,$80K - $120K,Blue,36,5,1,3,30579,1351,29228,0.759,1289,19,0.727,0.044,9.3448E-05,0.99991
+492,Existing Customer,47,M,3,High School,Single,$80K - $120K,Blue,42,4,1,0,24480,1923,22557,0.505,1416,32,0.778,0.079,2.0494E-05,0.99998
+493,Existing Customer,56,F,1,Uneducated,Divorced,Unknown,Blue,52,6,1,2,17561,0,17561,0.94,1608,33,1.2,0,5.3155E-05,0.99995
+494,Existing Customer,54,F,0,College,Married,Less than $40K,Blue,40,3,1,2,1638,0,1638,0.75,1885,51,0.545,0,4.595E-05,0.99995
+495,Existing Customer,54,M,1,Graduate,Married,$60K - $80K,Blue,36,3,3,2,2947,2216,731,0.76,1744,53,0.606,0.752,0.00016883,0.99983
+496,Existing Customer,52,M,4,High School,Married,$80K - $120K,Blue,42,6,1,0,5738,1112,4626,1.519,1922,48,0.655,0.194,2.0713E-05,0.99998
+497,Existing Customer,43,M,4,Unknown,Unknown,$120K +,Blue,34,5,2,2,33304,1833,31471,0.428,1448,29,0.381,0.055,0.00013121,0.99987
+498,Existing Customer,59,M,1,College,Single,$40K - $60K,Blue,48,6,3,3,7251,1603,5648,0.591,1300,36,0.8,0.221,0.00027607,0.99972
+499,Existing Customer,44,M,1,Unknown,Married,Unknown,Blue,34,6,2,0,2885,1895,990,0.387,1366,31,0.632,0.657,4.3319E-05,0.99996
+500,Existing Customer,56,F,1,College,Married,Less than $40K,Blue,36,6,2,3,2641,1257,1384,0.891,1439,39,1.053,0.476,0.0001747,0.99983
+501,Existing Customer,45,F,4,Graduate,Married,Unknown,Blue,35,6,3,0,2801,2043,758,0.583,1241,46,0.643,0.729,6.9589E-05,0.99993
+502,Existing Customer,55,M,1,High School,Married,$80K - $120K,Blue,45,3,3,3,16794,809,15985,1.566,1917,33,0.941,0.048,0.00027604,0.99972
+503,Existing Customer,48,F,3,College,Divorced,$40K - $60K,Blue,41,4,1,3,9336,1672,7664,0.696,1391,39,0.625,0.179,9.3457E-05,0.99991
+504,Existing Customer,56,F,5,College,Single,Less than $40K,Blue,43,4,1,0,2763,2517,246,0.938,1246,31,0.824,0.911,2.0392E-05,0.99998
+505,Existing Customer,41,M,3,Uneducated,Married,$60K - $80K,Blue,36,5,3,2,17391,1044,16347,1.08,1248,27,0.688,0.06,0.00019191,0.99981
+506,Existing Customer,65,F,1,High School,Married,Less than $40K,Blue,36,3,2,0,3198,2493,705,0.665,1936,44,1.316,0.78,3.8311E-05,0.99996
+507,Existing Customer,34,M,4,Post-Graduate,Single,$80K - $120K,Blue,26,3,3,2,5100,1786,3314,1.06,2375,63,0.575,0.35,0.00022196,0.99978
+508,Existing Customer,56,M,3,Post-Graduate,Married,$60K - $80K,Blue,39,3,1,2,3955,2517,1438,0.484,1238,25,1.083,0.636,6.7249E-05,0.99993
+509,Existing Customer,62,F,1,High School,Married,Less than $40K,Blue,48,5,3,1,3140,1985,1155,1.346,1626,41,0.864,0.632,9.8983E-05,0.9999
+510,Attrited Customer,45,F,3,Uneducated,Single,Unknown,Blue,36,3,3,3,4028,710,3318,0.731,791,22,0.833,0.176,0.99691,0.00308778
+511,Existing Customer,38,F,2,Uneducated,Single,Less than $40K,Blue,32,5,3,3,2264,0,2264,0.479,1204,28,0.333,0,0.00031104,0.99969
+512,Existing Customer,49,M,3,Unknown,Unknown,$120K +,Blue,44,5,2,2,21620,2008,19612,0.691,1300,33,0.5,0.093,0.00012982,0.99987
+513,Existing Customer,58,M,2,High School,Single,$60K - $80K,Blue,45,3,2,0,6385,1535,4850,1.138,1612,47,0.88,0.24,4.0816E-05,0.99996
+514,Existing Customer,41,F,4,Graduate,Single,$40K - $60K,Blue,31,4,2,3,2375,1658,717,0.638,1071,28,1,0.698,0.00020077,0.9998
+515,Existing Customer,33,M,2,Graduate,Married,$60K - $80K,Blue,13,3,3,3,1963,1721,242,0.68,1378,37,0.762,0.877,0.00030251,0.9997
+516,Existing Customer,47,F,4,College,Single,Less than $40K,Blue,37,6,2,2,4256,1084,3172,0.63,1100,29,0.381,0.255,0.00011605,0.99988
+517,Existing Customer,56,F,1,Graduate,Married,Less than $40K,Blue,49,5,1,0,5097,1152,3945,0.94,2052,45,0.607,0.226,1.9069E-05,0.99998
+518,Existing Customer,51,M,1,Graduate,Single,$60K - $80K,Blue,45,3,2,3,3228,2517,711,0.949,1349,33,1.357,0.78,0.00017969,0.99982
+519,Existing Customer,49,M,1,Graduate,Unknown,$40K - $60K,Silver,41,6,1,3,20231,977,19254,0.893,1215,36,0.714,0.048,7.8567E-05,0.99992
+520,Attrited Customer,50,M,1,Unknown,Single,$120K +,Blue,39,3,2,3,27512,2137,25375,1.048,1149,25,0.562,0.078,0.99496,0.00504
+521,Existing Customer,55,F,3,Unknown,Married,$40K - $60K,Blue,47,5,2,0,1929,1540,389,1.142,2354,50,0.786,0.798,4.7889E-05,0.99995
+522,Existing Customer,26,M,0,Graduate,Single,Less than $40K,Blue,13,6,3,2,2585,2019,566,0.525,2644,40,0.481,0.781,0.00015435,0.99985
+523,Attrited Customer,58,M,1,College,Married,$80K - $120K,Blue,47,3,3,3,12151,1799,10352,1.022,918,14,0.556,0.148,0.99639,0.00360825
+524,Existing Customer,46,M,3,High School,Single,$80K - $120K,Gold,42,3,2,2,34516,2113,32403,0.618,1362,31,1.214,0.061,0.00013228,0.99987
+525,Existing Customer,48,M,4,High School,Married,$120K +,Blue,31,6,3,1,34516,1013,33503,0.575,1222,37,0.85,0.029,0.0001106,0.99989
+526,Existing Customer,42,M,4,Uneducated,Divorced,$60K - $80K,Blue,32,4,1,2,5504,0,5504,0.62,1364,32,0.684,0,5.9391E-05,0.99994
+527,Existing Customer,37,M,4,Graduate,Married,$80K - $120K,Blue,28,4,1,2,10021,1203,8818,0.93,1463,40,1,0.12,5.7762E-05,0.99994
+528,Existing Customer,63,F,0,Unknown,Married,Less than $40K,Blue,49,5,3,0,3558,2318,1240,1.265,1631,31,0.824,0.651,6.2588E-05,0.99994
+529,Existing Customer,50,M,3,High School,Single,$40K - $60K,Silver,44,4,3,4,19853,1513,18340,0.802,1878,55,0.41,0.076,0.00047034,0.99953
+530,Existing Customer,41,F,1,High School,Single,$40K - $60K,Blue,31,6,3,2,4969,838,4131,0.591,1489,32,0.455,0.169,0.00016413,0.99984
+531,Existing Customer,48,F,3,Graduate,Divorced,Less than $40K,Blue,40,3,2,3,3117,1603,1514,1.167,1437,37,0.609,0.514,0.00019864,0.9998
+532,Existing Customer,46,M,2,College,Single,$80K - $120K,Blue,41,4,2,0,21526,2332,19194,0.755,1313,37,0.609,0.108,4.082E-05,0.99996
+533,Existing Customer,61,M,0,High School,Single,$60K - $80K,Blue,51,4,2,2,5504,1412,4092,0.722,1290,38,0.462,0.257,9.4951E-05,0.99991
+534,Existing Customer,59,F,0,Unknown,Married,Less than $40K,Blue,53,4,3,2,5512,1124,4388,1.391,1975,49,1.579,0.204,0.00016966,0.99983
+535,Attrited Customer,53,F,2,Doctorate,Married,Unknown,Blue,39,1,2,3,1438.3,0,1438.3,0.644,807,22,0.692,0,0.9964,0.00359603
+536,Existing Customer,39,F,3,Doctorate,Unknown,$40K - $60K,Blue,28,5,3,0,7262,1466,5796,0.512,1438,28,0.556,0.202,9.9638E-05,0.9999
+537,Existing Customer,51,M,3,High School,Married,$120K +,Blue,40,6,3,2,7319,1692,5627,0.701,1233,29,0.611,0.231,0.00018145,0.99982
+538,Attrited Customer,45,M,2,Graduate,Married,$60K - $80K,Blue,25,3,5,3,1438.3,0,1438.3,0.676,709,27,0.421,0,0.99705,0.00294997
+539,Existing Customer,48,M,4,Unknown,Single,$60K - $80K,Blue,30,4,3,3,7712,1387,6325,0.861,1597,39,0.56,0.18,0.00034872,0.99965
+540,Existing Customer,47,M,1,Graduate,Married,$60K - $80K,Blue,37,6,3,0,2053,0,2053,0.865,1283,28,1.154,0,6.2282E-05,0.99994
+541,Existing Customer,41,M,2,High School,Married,$40K - $60K,Blue,32,3,1,3,12804,2517,10287,0.892,1101,37,0.276,0.197,9.0056E-05,0.99991
+542,Existing Customer,48,M,4,College,Married,$80K - $120K,Blue,36,3,3,2,26443,1601,24842,0.493,1593,36,0.333,0.061,0.0001834,0.99982
+543,Existing Customer,50,F,4,Graduate,Single,Less than $40K,Blue,36,6,2,0,3125,1928,1197,0.412,1631,46,0.533,0.617,4.4033E-05,0.99996
+544,Existing Customer,56,F,2,Post-Graduate,Married,Less than $40K,Blue,48,6,1,2,4930,2259,2671,1.134,2194,53,0.606,0.458,6.4807E-05,0.99994
+545,Existing Customer,39,F,2,College,Single,Less than $40K,Blue,36,6,3,3,9476,0,9476,0.605,1128,27,0.929,0,0.00029411,0.99971
+546,Existing Customer,47,M,1,Graduate,Married,$80K - $120K,Blue,37,6,3,3,11722,1667,10055,0.566,1497,35,0.25,0.142,0.00028395,0.99972
+547,Existing Customer,44,M,2,Graduate,Single,$120K +,Blue,33,4,1,3,13301,0,13301,1.058,1385,50,0.515,0,9.2637E-05,0.99991
+548,Existing Customer,61,F,1,Unknown,Married,Unknown,Blue,47,4,2,3,1438.3,0,1438.3,1.337,1449,27,1.455,0,0.00019751,0.9998
+549,Attrited Customer,43,F,2,Post-Graduate,Married,Less than $40K,Blue,37,3,3,1,1438.3,0,1438.3,1.004,974,28,0.273,0,0.99223,0.00777
+550,Attrited Customer,59,M,1,High School,Married,$60K - $80K,Blue,36,3,2,3,6705,0,6705,0.749,731,18,0.5,0,0.99431,0.00569
+551,Existing Customer,42,F,2,Uneducated,Married,Unknown,Blue,31,4,2,0,22718,0,22718,0.791,1191,37,1.176,0,4.317E-05,0.99996
+552,Existing Customer,40,M,4,Unknown,Divorced,$40K - $60K,Gold,28,4,2,2,23981,1788,22193,0.631,1421,34,0.308,0.075,0.00015117,0.99985
+553,Existing Customer,65,M,2,Unknown,Married,Less than $40K,Blue,56,4,2,4,2318,1010,1308,0.81,1256,35,0.591,0.436,0.00035894,0.99964
+554,Existing Customer,48,M,1,College,Married,$60K - $80K,Blue,29,4,3,2,19324,1040,18284,0.904,1744,50,0.852,0.054,0.00016415,0.99984
+555,Existing Customer,44,M,2,Graduate,Single,$40K - $60K,Blue,34,5,3,1,5331,1993,3338,0.777,1766,39,0.625,0.374,0.00010848,0.99989
+556,Existing Customer,36,F,4,Unknown,Married,Unknown,Blue,31,5,2,0,15700,1276,14424,1.389,2229,48,0.778,0.081,4.8401E-05,0.99995
+557,Existing Customer,45,M,4,Graduate,Single,$60K - $80K,Blue,30,6,2,2,17625,894,16731,1.285,1773,39,1.053,0.051,0.00011937,0.99988
+558,Existing Customer,39,M,2,Graduate,Married,$80K - $120K,Blue,34,6,3,2,17438,0,17438,1.078,1860,37,0.85,0,0.00017987,0.99982
+559,Existing Customer,40,M,4,College,Unknown,$80K - $120K,Blue,25,3,3,1,1962,0,1962,0.684,1179,27,0.688,0,0.00011061,0.99989
+560,Attrited Customer,62,M,0,High School,Married,$60K - $80K,Blue,56,3,3,2,8077,0,8077,0.749,906,16,0.333,0,0.99338,0.00662
+561,Existing Customer,26,M,0,Graduate,Single,$40K - $60K,Blue,13,6,1,2,3290,1616,1674,0.466,2781,54,0.35,0.491,4.7263E-05,0.99995
+562,Existing Customer,60,M,0,Uneducated,Single,Less than $40K,Blue,53,5,3,2,2402,1728,674,0.652,1650,53,0.606,0.719,0.00015871,0.99984
+563,Existing Customer,54,F,3,Doctorate,Single,Less than $40K,Blue,42,6,1,0,9256,1999,7257,0.812,1446,37,0.762,0.216,3.0508E-05,0.99997
+564,Existing Customer,62,M,0,Graduate,Married,$60K - $80K,Blue,36,6,3,3,3674,895,2779,0.658,1703,48,0.371,0.244,0.0002596,0.99974
+565,Attrited Customer,57,M,2,College,Married,$40K - $60K,Blue,50,2,5,3,6462,0,6462,0.856,761,17,0.214,0,0.99697,0.00303398
+566,Existing Customer,59,M,0,Graduate,Single,$40K - $60K,Blue,48,4,2,2,1638,0,1638,0.533,1536,44,0.63,0,9.7673E-05,0.9999
+567,Existing Customer,46,M,4,Graduate,Single,$60K - $80K,Blue,38,3,3,2,4335,2480,1855,0.543,1373,36,1.118,0.572,0.00018864,0.99981
+568,Existing Customer,44,M,4,High School,Single,$60K - $80K,Blue,32,5,3,2,3233,1034,2199,0.759,1256,29,0.706,0.32,0.00018339,0.99982
+569,Attrited Customer,48,M,4,Unknown,Single,$80K - $120K,Blue,36,1,3,1,11862,2517,9345,0.766,643,16,0.231,0.212,0.99207,0.00793
+570,Existing Customer,43,M,2,Uneducated,Divorced,$120K +,Silver,24,4,2,0,34516,1938,32578,0.426,1215,45,0.406,0.056,3.9007E-05,0.99996
+571,Existing Customer,57,M,4,Uneducated,Married,$120K +,Blue,38,6,6,2,19802,1961,17841,1.125,2244,58,0.706,0.099,0.00015311,0.99985
+572,Existing Customer,46,M,3,College,Unknown,$80K - $120K,Blue,36,4,2,2,24869,1729,23140,0.408,1409,36,0.5,0.07,0.00011483,0.99989
+573,Existing Customer,40,M,3,High School,Unknown,$60K - $80K,Blue,36,4,2,1,3624,1975,1649,0.708,1469,23,1.091,0.545,6.9242E-05,0.99993
+574,Existing Customer,54,M,1,Unknown,Married,$80K - $120K,Blue,36,4,1,2,6175,960,5215,0.709,1847,59,0.405,0.155,5.6825E-05,0.99994
+575,Existing Customer,57,F,1,Graduate,Single,$40K - $60K,Blue,48,5,1,0,10953,1945,9008,0.886,1277,29,0.526,0.178,1.9069E-05,0.99998
+576,Existing Customer,44,M,4,Graduate,Married,$60K - $80K,Blue,28,6,2,3,11338,0,11338,0.695,1227,24,0.5,0,0.00020077,0.9998
+577,Existing Customer,47,F,2,Doctorate,Married,Less than $40K,Blue,35,3,2,2,5544,1184,4360,0.85,1336,38,0.652,0.214,0.00016471,0.99984
+578,Existing Customer,47,M,4,Doctorate,Married,$60K - $80K,Blue,36,4,1,1,19665,706,18959,1.317,1110,58,0.349,0.036,5.0408E-05,0.99995
+579,Existing Customer,50,F,2,High School,Married,Less than $40K,Blue,43,6,2,3,2927,1412,1515,0.763,1474,26,0.857,0.482,0.0001861,0.99981
+580,Existing Customer,53,F,3,College,Married,$40K - $60K,Blue,33,4,3,3,5146,1618,3528,1.073,1955,44,0.76,0.314,0.00030519,0.99969
+581,Attrited Customer,56,M,1,College,Married,$60K - $80K,Blue,44,5,3,3,1704,0,1704,0.701,660,17,0.308,0,0.99639,0.00360825
+582,Attrited Customer,55,M,1,High School,Married,$60K - $80K,Blue,46,2,2,3,1438.3,0,1438.3,1.037,888,18,1.25,0,0.99431,0.00569
+583,Existing Customer,53,F,4,High School,Married,Less than $40K,Blue,36,6,1,3,2974,1170,1804,1.297,1785,45,1.143,0.393,9.4447E-05,0.99991
+584,Attrited Customer,61,M,1,Unknown,Married,$40K - $60K,Blue,49,1,2,2,5472,788,4684,0.526,705,14,0.273,0.144,0.99156,0.00844
+585,Existing Customer,57,M,2,High School,Married,$60K - $80K,Blue,38,3,1,2,2736,1822,914,0.593,1211,25,0.923,0.666,5.3542E-05,0.99995
+586,Existing Customer,50,M,2,Graduate,Married,$80K - $120K,Blue,37,6,2,1,1438.3,862,576.3,0.65,1391,40,0.212,0.599,6.864E-05,0.99993
+587,Existing Customer,56,F,2,Unknown,Married,Unknown,Blue,45,4,3,0,5406,1782,3624,0.976,1407,29,0.812,0.33,7.2936E-05,0.99993
+588,Existing Customer,52,M,2,Graduate,Single,$120K +,Blue,44,5,1,1,34516,2174,32342,0.426,1616,50,0.515,0.063,3.3214E-05,0.99997
+589,Existing Customer,60,M,0,Graduate,Married,Less than $40K,Blue,36,6,2,2,1976,1311,665,0.995,1498,43,0.536,0.663,9.7673E-05,0.9999
+590,Existing Customer,49,M,4,Uneducated,Married,$80K - $120K,Blue,40,3,1,1,8714,2252,6462,0.831,1536,38,0.652,0.258,3.5816E-05,0.99996
+591,Existing Customer,46,F,4,Doctorate,Divorced,Less than $40K,Blue,41,4,1,1,8693,1378,7315,0.799,1594,45,0.452,0.159,5.0408E-05,0.99995
+592,Existing Customer,42,M,1,Uneducated,Married,$80K - $120K,Blue,36,6,1,2,9247,710,8537,0.735,1190,30,0.5,0.077,5.3155E-05,0.99995
+593,Existing Customer,45,M,3,High School,Married,Less than $40K,Blue,33,6,5,0,7717,1430,6287,0.822,1248,37,0.85,0.185,7.4762E-05,0.99993
+594,Attrited Customer,45,F,4,Uneducated,Married,Less than $40K,Blue,38,3,4,3,4908,0,4908,0.993,827,21,0.75,0,0.99747,0.00252933
+595,Attrited Customer,44,F,3,Doctorate,Married,Less than $40K,Blue,38,6,1,3,7222,0,7222,0.685,920,18,0.5,0,0.99286,0.00714
+596,Existing Customer,61,M,0,Uneducated,Single,$80K - $120K,Blue,48,6,2,2,21740,0,21740,0.676,1755,54,0.543,0,0.00010043,0.9999
+597,Attrited Customer,55,M,3,Uneducated,Married,$60K - $80K,Blue,44,3,2,2,2323,0,2323,0.737,804,15,0.5,0,0.99183,0.00817
+598,Existing Customer,44,M,4,Unknown,Divorced,$60K - $80K,Blue,29,4,2,2,7788,0,7788,0.296,1196,30,0.429,0,0.00013121,0.99987
+599,Attrited Customer,55,F,1,Unknown,Married,Less than $40K,Blue,36,4,1,3,1438.3,361,1077.3,0.963,850,22,0.692,0.251,0.98965,0.01035
+600,Existing Customer,57,M,2,Unknown,Married,$120K +,Blue,36,3,2,2,23700,1314,22386,1.487,1644,28,0.647,0.055,0.00012511,0.99987
+601,Existing Customer,45,M,2,Doctorate,Married,$80K - $120K,Blue,40,6,3,1,11710,693,11017,0.914,1749,50,0.429,0.059,0.00015697,0.99984
+602,Existing Customer,57,F,0,High School,Married,$40K - $60K,Blue,45,3,2,2,2278,845,1433,1.328,2307,45,0.8,0.371,9.4951E-05,0.99991
+603,Existing Customer,31,M,0,Uneducated,Married,$40K - $60K,Blue,22,3,3,0,4048,1113,2935,0.717,1757,45,0.607,0.275,5.8546E-05,0.99994
+604,Existing Customer,34,F,2,Graduate,Married,Less than $40K,Blue,24,6,2,2,3663,1853,1810,0.963,1826,35,1.059,0.506,0.00011382,0.99989
+605,Attrited Customer,53,F,1,Graduate,Single,Less than $40K,Blue,36,2,2,3,1438.3,0,1438.3,0.672,799,17,0.214,0,0.99447,0.00553
+606,Existing Customer,35,F,1,College,Single,Unknown,Blue,28,4,5,2,3518,1575,1943,0.625,2121,60,0.579,0.448,0.00018334,0.99982
+607,Existing Customer,44,F,4,Graduate,Married,Less than $40K,Blue,36,4,1,0,1717,0,1717,0.619,1468,29,0.381,0,2.1307E-05,0.99998
+608,Existing Customer,50,M,1,Graduate,Married,$80K - $120K,Blue,45,3,2,2,16813,1185,15628,0.552,1482,46,0.643,0.07,0.00010684,0.99989
+609,Existing Customer,33,M,3,Post-Graduate,Married,$80K - $120K,Blue,25,4,2,3,16434,2104,14330,0.955,1726,37,0.85,0.128,0.00023373,0.99977
+610,Existing Customer,50,M,3,Graduate,Single,$60K - $80K,Blue,45,4,2,3,21872,1118,20754,0.658,1806,31,0.409,0.051,0.00019864,0.9998
+611,Existing Customer,51,M,4,High School,Married,$80K - $120K,Blue,41,5,2,0,15897,1437,14460,0.584,1405,43,0.387,0.09,4.2806E-05,0.99996
+612,Existing Customer,56,F,4,Unknown,Married,Less than $40K,Blue,46,5,3,2,4271,1150,3121,1.064,2052,50,0.724,0.269,0.00020735,0.99979
+613,Existing Customer,55,F,3,Graduate,Single,Less than $40K,Blue,29,6,1,2,7361,1309,6052,0.504,1175,34,0.7,0.178,5.7151E-05,0.99994
+614,Existing Customer,26,M,0,College,Single,Less than $40K,Blue,36,4,1,3,1438.3,479,959.3,0.553,1786,37,0.37,0.333,7.7286E-05,0.99992
+615,Existing Customer,42,F,3,Graduate,Married,Less than $40K,Blue,33,6,3,3,8628,1077,7551,0.872,1675,58,0.415,0.125,0.0003139,0.99969
+616,Existing Customer,54,M,2,College,Married,$80K - $120K,Blue,44,4,3,3,18750,1705,17045,0.807,1200,36,0.895,0.091,0.00029411,0.99971
+617,Existing Customer,44,F,3,Graduate,Married,Unknown,Blue,36,4,2,3,21242,819,20423,0.499,1283,37,0.542,0.039,0.00019864,0.9998
+618,Existing Customer,65,F,0,Graduate,Married,$40K - $60K,Blue,56,5,3,0,2961,1570,1391,0.908,1937,57,0.781,0.53,5.694E-05,0.99994
+619,Existing Customer,38,F,3,High School,Married,Unknown,Blue,29,4,2,2,11327,1528,9799,1.142,2033,38,0.727,0.135,0.00011482,0.99989
+620,Existing Customer,58,M,3,High School,Married,$60K - $80K,Blue,40,6,1,3,8308,2517,5791,1.455,1915,37,1.056,0.303,9.3448E-05,0.99991
+621,Existing Customer,39,F,3,Post-Graduate,Married,$40K - $60K,Blue,28,4,2,2,3249,2217,1032,1.06,1988,36,0.895,0.682,0.00013897,0.99986
+622,Existing Customer,52,M,2,High School,Married,$120K +,Blue,36,5,1,2,2981,1358,1623,1.242,1648,30,1.5,0.456,5.3542E-05,0.99995
+623,Existing Customer,45,F,3,Graduate,Married,Less than $40K,Blue,31,4,1,0,8829,901,7928,0.825,1902,45,0.667,0.102,2.1081E-05,0.99998
+624,Existing Customer,42,M,3,Unknown,Single,$80K - $120K,Blue,33,3,3,2,3714,2170,1544,0.524,1454,35,0.522,0.584,0.00020516,0.99979
+625,Attrited Customer,42,M,2,College,Married,$60K - $80K,Blue,28,6,1,3,7340,0,7340,0.65,838,24,0.412,0,0.98902,0.01098
+626,Existing Customer,57,M,4,Post-Graduate,Married,$120K +,Blue,51,4,2,3,16952,0,16952,0.709,1918,61,0.649,0,0.00023623,0.99976
+627,Attrited Customer,55,M,3,Doctorate,Single,$80K - $120K,Blue,35,4,1,3,20865,0,20865,0.881,837,25,0.667,0,0.99286,0.00714
+628,Existing Customer,44,F,3,College,Unknown,Less than $40K,Blue,25,6,3,2,3083,1040,2043,0.729,4311,78,0.56,0.337,0.00018146,0.99982
+629,Existing Customer,37,F,3,Graduate,Married,Unknown,Blue,24,3,2,2,10584,1550,9034,0.692,1567,33,0.32,0.146,0.00011811,0.99988
+630,Existing Customer,50,F,3,Unknown,Married,Less than $40K,Blue,42,4,1,2,2240,0,2240,0.668,1905,39,0.345,0,6.282E-05,0.99994
+631,Existing Customer,51,M,2,Graduate,Married,$40K - $60K,Blue,40,5,1,2,12240,1566,10674,0.539,1422,26,0.529,0.128,5.5077E-05,0.99994
+632,Existing Customer,37,M,1,Graduate,Married,$80K - $120K,Blue,21,6,2,0,5120,0,5120,0.867,1680,32,0.778,0,3.941E-05,0.99996
+633,Existing Customer,36,F,2,Graduate,Married,Less than $40K,Blue,24,3,1,3,3124,1593,1531,0.869,1652,41,0.367,0.51,9.2637E-05,0.99991
+634,Existing Customer,51,F,2,High School,Married,Less than $40K,Silver,36,5,3,0,11261,2485,8776,0.736,1158,26,0.857,0.221,5.8284E-05,0.99994
+635,Existing Customer,65,M,1,Uneducated,Married,$40K - $60K,Blue,56,3,3,2,2468,2021,447,0.906,1797,46,0.586,0.819,0.0001736,0.99983
+636,Existing Customer,43,M,2,College,Married,$60K - $80K,Blue,28,4,2,3,22157,1355,20802,0.69,1911,55,0.571,0.061,0.00018612,0.99981
+637,Existing Customer,46,M,3,Graduate,Married,$40K - $60K,Blue,32,6,2,3,11477,0,11477,0.767,1260,27,0.688,0,0.00019864,0.9998
+638,Existing Customer,43,F,2,Graduate,Married,Less than $40K,Blue,33,5,2,2,3933,852,3081,0.433,1489,45,0.324,0.217,0.00011382,0.99989
+639,Existing Customer,56,M,3,Graduate,Married,$80K - $120K,Blue,50,3,3,3,8022,1372,6650,0.896,1794,31,1.385,0.171,0.0003139,0.99969
+640,Existing Customer,43,M,3,Unknown,Single,$60K - $80K,Blue,34,6,2,0,13771,2517,11254,0.501,1510,42,0.75,0.183,4.7889E-05,0.99995
+641,Attrited Customer,53,M,1,Graduate,Single,$80K - $120K,Blue,48,3,3,3,30271,1406,28865,1.336,3231,47,0.306,0.046,0.99649,0.00350838
+642,Existing Customer,50,M,2,High School,Unknown,$60K - $80K,Blue,41,6,2,2,3244,1762,1482,0.661,1274,32,1,0.543,0.00011065,0.99989
+643,Existing Customer,43,F,3,Graduate,Married,$40K - $60K,Blue,36,6,1,3,2936,2379,557,0.694,1572,57,0.676,0.81,9.6126E-05,0.9999
+644,Existing Customer,54,M,3,High School,Married,$80K - $120K,Blue,36,6,1,2,1438.3,1133,305.3,0.759,1935,41,0.708,0.788,5.5559E-05,0.99994
+645,Existing Customer,33,M,2,Unknown,Married,$60K - $80K,Blue,25,6,3,3,6242,491,5751,1.054,2187,59,0.405,0.079,0.00033251,0.99967
+646,Existing Customer,58,F,2,Uneducated,Married,$40K - $60K,Blue,49,3,1,3,6175,1166,5009,0.803,1417,25,0.25,0.189,9.5249E-05,0.9999
+647,Existing Customer,41,M,3,Graduate,Single,$80K - $120K,Blue,26,4,3,2,11806,1811,9995,0.754,1465,31,0.476,0.153,0.00018665,0.99981
+648,Existing Customer,48,M,3,Post-Graduate,Single,$60K - $80K,Blue,39,5,2,2,4734,954,3780,0.6,1570,45,0.452,0.202,0.00013897,0.99986
+649,Existing Customer,55,M,2,High School,Single,$40K - $60K,Blue,36,5,2,0,6244,2517,3727,0.607,1445,40,0.29,0.403,4.0816E-05,0.99996
+650,Attrited Customer,54,F,2,Graduate,Married,Less than $40K,Blue,45,3,1,3,1438.3,306,1132.3,1.035,694,15,0.364,0.213,0.98932,0.01068
+651,Existing Customer,51,F,3,Post-Graduate,Divorced,Unknown,Platinum,34,3,1,2,34516,1578,32938,0.725,1929,40,0.481,0.046,0.00011683,0.99988
+652,Existing Customer,35,M,3,Graduate,Single,$80K - $120K,Blue,24,4,1,2,23561,864,22697,1.373,2447,64,1,0.037,5.7151E-05,0.99994
+653,Existing Customer,50,M,3,Uneducated,Single,$80K - $120K,Blue,36,5,2,3,24742,1676,23066,0.566,1306,31,0.55,0.068,0.00020424,0.9998
+654,Attrited Customer,55,M,4,High School,Married,$80K - $120K,Blue,41,2,2,2,27560,900,26660,1.031,646,10,0.25,0.033,0.99146,0.00854
+655,Existing Customer,45,F,0,College,Divorced,Less than $40K,Blue,35,6,1,3,5923,1686,4237,0.702,1236,35,0.591,0.285,7.7286E-05,0.99992
+656,Existing Customer,34,M,2,Uneducated,Married,$60K - $80K,Blue,36,6,1,2,8581,2326,6255,1.226,2513,63,0.615,0.271,5.663E-05,0.99994
+657,Existing Customer,55,F,4,Graduate,Married,$40K - $60K,Blue,41,4,3,3,3156,2517,639,1.516,2091,48,0.778,0.798,0.00031726,0.99968
+658,Attrited Customer,48,F,2,Unknown,Married,Less than $40K,Blue,36,5,1,3,7151,800,6351,0.986,854,22,0.375,0.112,0.99028,0.00972
+659,Existing Customer,46,M,4,Graduate,Married,$60K - $80K,Blue,35,5,1,2,1535,700,835,2.282,1848,25,1.083,0.456,5.7762E-05,0.99994
+660,Attrited Customer,61,F,0,Graduate,Married,Less than $40K,Blue,56,3,3,3,2122,554,1568,0.857,949,17,0.133,0.261,0.99616,0.0038363
+661,Existing Customer,48,M,1,Uneducated,Unknown,$60K - $80K,Blue,35,3,2,2,17131,1213,15918,0.604,1371,37,0.423,0.071,0.00010985,0.99989
+662,Existing Customer,51,F,1,Graduate,Married,Less than $40K,Blue,42,6,2,2,5822,2387,3435,0.76,1804,49,0.75,0.41,0.00010684,0.99989
+663,Existing Customer,39,M,3,Doctorate,Married,$60K - $80K,Blue,29,3,1,3,3537,2517,1020,1.021,1605,43,0.344,0.712,0.0001391,0.99986
+664,Existing Customer,43,M,3,Graduate,Married,$120K +,Blue,33,3,1,3,34516,2129,32387,0.587,1463,38,0.583,0.062,9.6126E-05,0.9999
+665,Existing Customer,53,M,3,Graduate,Single,$60K - $80K,Blue,47,6,4,3,16320,0,16320,0.757,1279,41,0.708,0,0.00037935,0.99962
+666,Existing Customer,38,M,2,High School,Married,$80K - $120K,Blue,36,5,3,3,2407,843,1564,1.008,1470,28,0.4,0.35,0.00029408,0.99971
+667,Existing Customer,49,F,2,High School,Single,Less than $40K,Blue,43,4,1,2,3538,0,3538,0.481,1265,38,0.462,0,5.3542E-05,0.99995
+668,Existing Customer,37,F,0,Unknown,Married,Less than $40K,Blue,31,5,2,2,2684,1381,1303,0.794,2002,60,0.429,0.515,0.00010736,0.99989
+669,Existing Customer,53,M,3,Graduate,Single,$80K - $120K,Blue,36,4,3,2,34516,2517,31999,0.741,1475,33,0.833,0.073,0.00018665,0.99981
+670,Existing Customer,46,M,2,Post-Graduate,Single,$40K - $60K,Silver,40,4,2,2,15459,0,15459,0.789,1419,30,0.667,0,0.00012101,0.99988
+671,Existing Customer,44,F,3,Uneducated,Single,Less than $40K,Blue,36,5,3,3,4307,0,4307,0.745,1628,37,0.542,0,0.00032275,0.99968
+672,Existing Customer,50,F,1,Unknown,Single,Less than $40K,Blue,46,4,2,3,2081,1235,846,1.485,1337,29,1.071,0.593,0.00019751,0.9998
+673,Existing Customer,58,F,2,Uneducated,Married,$40K - $60K,Blue,47,3,2,2,2848,1468,1380,0.517,1135,27,0.421,0.515,0.00011703,0.99988
+674,Existing Customer,55,M,3,High School,Single,$120K +,Blue,51,3,1,3,34516,1266,33250,0.846,1161,26,0.368,0.037,9.3448E-05,0.99991
+675,Existing Customer,44,M,3,College,Unknown,$80K - $120K,Blue,35,6,1,2,6361,1292,5069,1.027,1571,38,0.52,0.203,5.5564E-05,0.99994
+676,Existing Customer,57,M,4,High School,Married,$80K - $120K,Blue,38,4,1,3,15428,1553,13875,0.747,1916,40,0.538,0.101,9.4447E-05,0.99991
+677,Existing Customer,57,M,1,High School,Married,$40K - $60K,Blue,48,5,1,3,2544,1927,617,0.939,1346,30,0.364,0.757,8.453E-05,0.99992
+678,Attrited Customer,48,M,3,High School,Married,$80K - $120K,Blue,42,1,1,3,9959,0,9959,0.688,805,24,0.143,0,0.98941,0.01059
+679,Existing Customer,51,M,1,Graduate,Single,$60K - $80K,Blue,39,3,3,2,8796,2517,6279,0.492,1195,18,0.8,0.286,0.00016883,0.99983
+680,Existing Customer,53,F,3,Uneducated,Married,Less than $40K,Blue,48,6,1,3,3428,1566,1862,0.557,1155,34,0.545,0.457,9.8837E-05,0.9999
+681,Existing Customer,45,F,1,Doctorate,Single,Less than $40K,Blue,36,6,2,2,1438.3,0,1438.3,0.597,1431,34,0.545,0,0.0001546,0.99985
+682,Existing Customer,41,M,4,Post-Graduate,Married,$60K - $80K,Blue,32,5,3,2,18001,906,17095,0.62,1194,25,0.471,0.05,0.00022196,0.99978
+683,Existing Customer,51,F,4,Graduate,Single,Less than $40K,Blue,42,3,1,3,2680,1753,927,0.32,1154,33,0.571,0.654,9.7154E-05,0.9999
+684,Existing Customer,46,F,2,High School,Married,Less than $40K,Blue,35,6,4,3,4675,1734,2941,0.413,1232,34,0.545,0.371,0.00035539,0.99964
+685,Existing Customer,40,F,5,College,Married,Less than $40K,Blue,35,3,1,3,2448,1693,755,0.502,1269,30,0.875,0.692,9.2982E-05,0.99991
+686,Existing Customer,33,M,2,Doctorate,Married,$60K - $80K,Blue,28,3,3,3,4049,0,4049,0.898,1742,35,1.5,0,0.00043772,0.99956
+687,Existing Customer,53,M,1,High School,Single,$80K - $120K,Blue,38,6,2,2,8154,996,7158,0.594,1379,26,1,0.122,0.00010386,0.9999
+688,Existing Customer,63,M,1,High School,Married,$40K - $60K,Blue,36,5,3,2,4559,1571,2988,1.441,1870,35,0.842,0.345,0.00016413,0.99984
+689,Existing Customer,61,M,0,Uneducated,Single,$80K - $120K,Blue,36,4,2,1,19354,984,18370,0.956,1207,32,0.684,0.051,6.0563E-05,0.99994
+690,Attrited Customer,56,M,4,High School,Married,$60K - $80K,Blue,46,3,3,3,2340,1930,410,0.987,781,15,0.364,0.825,0.99677,0.00323086
+691,Existing Customer,53,M,2,Graduate,Single,$60K - $80K,Blue,47,6,3,0,13848,1389,12459,1.178,1773,38,0.407,0.1,6.6354E-05,0.99993
+692,Attrited Customer,62,F,2,Graduate,Married,Less than $40K,Blue,52,4,2,2,2490,513,1977,0.678,864,20,0.333,0.206,0.99129,0.00871
+693,Existing Customer,50,F,4,Unknown,Married,Unknown,Silver,36,6,1,2,32156,1791,30365,0.906,1559,39,1.167,0.056,5.7369E-05,0.99994
+694,Existing Customer,37,M,4,Graduate,Married,$60K - $80K,Blue,30,5,3,2,2578,2517,61,0.896,1830,64,0.524,0.976,0.00018864,0.99981
+695,Existing Customer,62,F,0,Graduate,Married,Unknown,Blue,52,6,3,2,9050,1538,7512,0.77,1542,43,0.654,0.17,0.00015435,0.99985
+696,Existing Customer,49,M,3,Uneducated,Single,$80K - $120K,Silver,41,4,1,2,34516,0,34516,0.499,1506,47,0.516,0,5.3096E-05,0.99995
+697,Existing Customer,57,F,3,High School,Married,Unknown,Blue,51,6,1,0,8362,0,8362,0.528,1175,41,0.464,0,2.0494E-05,0.99998
+698,Existing Customer,55,M,2,High School,Married,$80K - $120K,Blue,36,3,2,3,6514,2258,4256,0.785,1383,20,1.857,0.347,0.0001861,0.99981
+699,Existing Customer,50,M,1,Graduate,Married,$80K - $120K,Blue,42,3,3,4,4051,1183,2868,0.794,1837,57,0.629,0.292,0.00048435,0.99952
+700,Existing Customer,48,M,3,College,Married,$60K - $80K,Blue,37,3,3,2,11959,1665,10294,0.675,1191,40,0.481,0.139,0.00018146,0.99982

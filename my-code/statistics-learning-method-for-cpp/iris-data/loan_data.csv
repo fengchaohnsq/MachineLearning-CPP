@@ -1,0 +1,16 @@
+ID,age,job,own_property,loan_status,class
+1,youth,n,n,average,n
+2,youth,n,n,good,n
+3,youth,y,n,good,y
+4,youth,y,y,average,y
+5,youth,n,n,average,n
+6,midlife,n,n,average,n
+7,midlife,n,n,good,n
+8,midlife,y,y,good,y
+9,midlife,n,y,excellent,y
+10,midlife,n,y,excellent,y
+11,aged,n,y,excellent,y
+12,aged,n,y,good,y
+13,aged,y,n,good,y
+14,aged,y,n,excellent,y
+15,aged,n,n,average,n
