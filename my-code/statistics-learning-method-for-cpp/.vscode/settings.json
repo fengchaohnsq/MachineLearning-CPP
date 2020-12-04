@@ -11,6 +11,9 @@
         "deque": "cpp",
         "unordered_map": "cpp",
         "initializer_list": "cpp",
-        "cstring": "cpp"
-    }
+        "cstring": "cpp",
+        "algorithm": "cpp",
+        "utility": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

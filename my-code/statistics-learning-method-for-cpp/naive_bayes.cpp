@@ -59,7 +59,7 @@ vector<vector<vector<string>>> DataPreHandle(string path,int data_row)
         data_bin.clear();
     }
     //set Y label
-    for (int row =0;row<data_row;row++)//get row from first line which include the id
+    for (int row =0;row<=data_row;row++)//get row from first line which include the id
     {
         data_bin.push_back(my_data_bin[row][my_data_bin[row].size()-1]);  //get the last data of each row, which is the label data.
         data_bin1.push_back(data_bin);
@@ -68,7 +68,7 @@ vector<vector<vector<string>>> DataPreHandle(string path,int data_row)
     my_data.push_back(data_bin1);
     data_bin1.clear();
     //set X data
-    for (int row =0;row<data_row;row++)//get row from first line which include the id
+    for (int row =0;row<=data_row;row++)//get row from first line which include the id
     {
         for(int column =0;column<my_data_bin[row].size()-1;column++)
         {
