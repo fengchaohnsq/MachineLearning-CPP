@@ -83,6 +83,25 @@ vector<vector<vector<string>>> DataPreHandle(string path,int data_row)
     return  my_data;
 }
 /*
+This method used for sorting data from small to large
+*/
+vector<vector<string>> SortByDim(vector<vector<string>> data,int discrete_dim)
+{
+    for(int data_row=1; data_row<data.size();data_row++)
+    {
+        for(int data_row2=data_row+1;data_row2<data.size();data_row2++)
+        {
+            if(atof(data[data_row][discrete_dim].c_str())>atof(data[data_row2][discrete_dim].c_str()))
+            {
+                vector<string> temp=data[data_row];
+                data[data_row]=data[data_row2];
+                data[data_row2]=temp;
+            }
+        }
+    }
+    return data;
+}
+/*
 this method transpose the matrix.
 */
 vector<vector<string>> Matrix_Transpose(vector<vector<string>> data)
@@ -146,17 +165,16 @@ double Entropy(vector<vector<string>> data,vector<string> y_label_class)
     vector<string> label;
     double empirical_entropy=0.0;
     double p=0.0;
-    // calculate each dimentions' entropy 
     for(int row=1;row<y_label.size();row++)// exclude label name
     {
-        label.push_back(y_label[row][5]);
+        label.push_back(y_label[row][data[0].size()-1]);
     }
     for( int class_num=0;class_num<y_label_class.size();class_num++)
     {
         double y_count=count(label.begin(),label.end(),y_label_class[class_num]);
         double label_num=label.size();
-        p= y_count/label_num;
-        if(p!=0){empirical_entropy=empirical_entropy+(-p*log(p));}
+        p=y_count/label_num;
+        if(p!=0){empirical_entropy=empirical_entropy+(-1*p*log2(p));}
     }
     return empirical_entropy;
 }
@@ -195,15 +213,16 @@ double ConditionalEntropy(vector<vector<string>> data,vector<string> y_label_cla
             double p_y=y_num/feature_class_num;
             if(p_y!=0)
             {
-                H_y_x=H_y_x+(-p_y*log(p_y));
+                H_y_x=H_y_x+(-1*p_y*log2(p_y));
             }
         }
         conditional_entropy=conditional_entropy+p*H_y_x;
+        H_y_x=0.0;
     }
     return conditional_entropy;
 }
 /*
-this method is used to select feature of data, by calculate the gain information
+this method calculates the gain information
 */
 double GainInfo(vector<vector<string>> data,vector<string> y_label_class,int dim)
 {
@@ -212,6 +231,80 @@ double GainInfo(vector<vector<string>> data,vector<string> y_label_class,int dim
     double result = entropy - conditional_entropy;
     return result;
 }
+/*
+this method calculates the gain ratio
+*/
+double GainRatio(vector<vector<string>> data,vector<string> y_label_class,int dim)
+{
+    double gain_info=GainInfo(data,y_label_class,dim);
+    vector<vector<string>> features=GetFeatureClass(data);
+    vector<vector<string>> transpose_x_data=Matrix_Transpose(data);
+    double entropy=0.0;
+    double p=0.0;
+    // calculate selected dimentions' entropy 
+    for( int feature_num=0;feature_num<features[dim].size();feature_num++)
+    {
+        double feature_count=count(transpose_x_data[dim].begin(),transpose_x_data[dim].end(),features[dim][feature_num]);
+        double data_num=data.size()-1;
+        p=feature_count/data_num;
+        if(p!=0){entropy=entropy+(-1*p*log2(p));}
+    }
+    double result=gain_info/entropy;
+    return result;
+}
+/*
+This method will convert continuous data to discrete data.
+*/
+vector<vector<string>> DataDiscreteByBiPartrition(vector<vector<string>> data,vector<string> y_label_class,int discrete_dim)
+{
+    //sort data from small to large
+    vector<vector<string>> sorted_data= SortByDim(data,discrete_dim);
+    //get the partition value array
+    vector<double> partition_values;
+    double gain_info=0.0;
+    double my_partition_value;
+    for(int data_row=0;data_row<sorted_data.size()-1;data_row++)// the number of partition value is data_row-1
+    {
+        double value=(atof(sorted_data[data_row][discrete_dim].c_str())+atof(sorted_data[data_row+1][discrete_dim].c_str()))/2;
+        partition_values.push_back(value);
+    }
+    //find the largest gain info
+    for(int i=0;i<partition_values.size();i++)
+    {
+        vector<vector<string>> data1=data;
+        //split data
+        for(int data_row=1; data_row<data1.size();data_row++)
+        {
+            
+            if(atof(data[data_row][discrete_dim].c_str())<=partition_values[i])
+            {
+                data1[data_row][discrete_dim]='1';
+            }
+            else
+            {
+                data1[data_row][discrete_dim]='2';
+            }
+        }
+        double my_gain=GainInfo(data1,y_label_class,discrete_dim);
+        if(gain_info<my_gain)
+        {
+            gain_info=GainInfo(data1,y_label_class,discrete_dim);
+            my_partition_value=partition_values[i];
+        }
+    }
+    for(int data_row=1; data_row<data.size();data_row++)
+    {
+        if(atof(data[data_row][discrete_dim].c_str())<=my_partition_value)
+        {
+            data[data_row][discrete_dim]='1';
+        }
+        else
+        {
+            data[data_row][discrete_dim]='2';
+        }
+    }
+    return data;
+}
 /*multiple tree node*/
 struct node
 {
@@ -219,7 +312,7 @@ struct node
     string data_attribute;  // current node determine attribute which is this dimentions'value.
     string y_label;//this is leaf nodes' classification result. 
     int selected_dimention; // selected feature
-    vector<node *> childs; // add child node using 		Node * new_node = new Node(); 		this->childs.push_back(new_node);
+    vector<node *> childs; // add child node using 	Node * new_node = new Node(); 		this->childs.push_back(new_node);
     node(vector<vector<string>> data,int dimention=NULL,string attribute="empty",string label="empty")
     {
         splited_data = data;
@@ -233,7 +326,8 @@ this method returns the dimention of most gain informations,which is used to spl
 */
 int FindDim(vector<vector<string>> data,vector<string> y_label_class,vector<int> used_dim)
 {
-    double gain_info=NULL;
+    double gain_info=0.0;
+    double gain_ratio=0.0;
     int selected_dim;
     bool initial=true;// initial flag
     for(int dim=1;dim<data[0].size()-1;dim++)// exclude id column and Y label column
@@ -248,14 +342,16 @@ int FindDim(vector<vector<string>> data,vector<string> y_label_class,vector<int>
         if(initial)
         {
             selected_dim=dim;
-            gain_info=GainInfo(data,y_label_class,dim);
+            //gain_info=GainInfo(data,y_label_class,dim);
+            gain_ratio=GainRatio(data,y_label_class,dim);
             initial=false;
         }
         // comparing gain information to find the largest gain information
-        if(gain_info<GainInfo(data,y_label_class,dim))
+        if(gain_ratio<GainRatio(data,y_label_class,dim))
         {
             selected_dim=dim;
-            gain_info=GainInfo(data,y_label_class,dim);
+            gain_ratio=GainRatio(data,y_label_class,dim);
+            //gain_info=GainInfo(data,y_label_class,dim);
         }
     }
     return selected_dim;
@@ -343,8 +439,14 @@ void DecisionTree(node *root,vector<string> y_label_class,double thresh_hold,vec
             return;
         }
     }
+    // all dimention are used except the last dimention
     if(used_dim.size()==(root->splited_data[0].size()-1))
     {
+        if(root->selected_dimention==0)
+        {
+            root->y_label=FindLatgestYlabel(root->splited_data,y_label_class);
+            return;
+        }
         vector<vector<vector<string>>> splited_data= SpliteDataByDim(root->splited_data,root->selected_dimention);
         for(int feature_num=0;feature_num<splited_data.size();feature_num++)    //spliting data based on the number of dimention classification 
         {
@@ -378,7 +480,7 @@ void DecisionTree(node *root,vector<string> y_label_class,double thresh_hold,vec
     // spliting the data as several subsets and made the largest subset as class label.
     for(int feature_num=0;feature_num<splited_data.size();feature_num++)    //spliting data based on the number of dimention classification 
     {
-        node *child_node= new node(splited_data[feature_num],NULL,feature_class[root->selected_dimention][feature_num],"empty"); // generate new child_node
+        node *child_node= new node(splited_data[feature_num],0,feature_class[root->selected_dimention][feature_num],"empty"); // generate new child_node
         root->childs.push_back(child_node);
     }
 
@@ -392,13 +494,37 @@ void DecisionTree(node *root,vector<string> y_label_class,double thresh_hold,vec
     }
 }
 /*
+this method is used to cart the decision tree
+*/
+double c_loss=0.0;
+void CartTree(node *root,double alpha)
+{
+    if(root->childs.size()==0)//if it didnt have a child node then this is a leaf node
+    {
+        return;
+    }
+    for(int i=0;i<root->childs.size();i++)
+    {
+        if(root->childs.size()==0)
+        {
+            c_loss=0.0;
+            // this is a leaf node
+        }
+        else
+        {
+            CartTree(root->childs[i],alpha);
+        }
+        
+    }
+}
+/*
 this method return the result from decision tree prediction.
 */
 void DecisionTreePrediction(node *decision_tree,vector<string> data_row)
 { 
     if(decision_tree->childs.size()==0)//if it didnt have a child node then this is a leaf node
     {
-        prediction_result.push_back(decision_tree->data_attribute);
+        prediction_result.push_back(decision_tree->y_label);
         return;
     }
     for(int i=0;i<decision_tree->childs.size();i++)
@@ -415,15 +541,26 @@ int main()
 {
     // setting Y label string
     vector<string> y_label_class;
-    y_label_class.push_back("y");
-    y_label_class.push_back("n");
+    y_label_class.push_back("Existing Customer");
+    y_label_class.push_back("Attrited Customer");
+    // setting continuous dimention
+    vector<int> continuous_dim;
+    continuous_dim.push_back(1);
+    continuous_dim.push_back(6);
+    continuous_dim.push_back(7);
     //splitting data as X data and Y label
-    string train_path="/home/fengchao/MachineLearning-CPP/my-code/statistics-learning-method-for-cpp/iris-data/loan_data.csv";
-    string test_path="/home/fengchao/MachineLearning-CPP/my-code/statistics-learning-method-for-cpp/iris-data/loan_data_test.csv";
-    int train_data_row=15;
-    int test_data_row=36;
+    string train_path="/home/fengchao/MachineLearning-CPP/my-code/statistics-learning-method-for-cpp/iris-data/bank_data_train.csv";
+    string test_path="/home/fengchao/MachineLearning-CPP/my-code/statistics-learning-method-for-cpp/iris-data/bank_data_test.csv";
+    int train_data_row=700;
+    int test_data_row=300;
     vector<vector<vector<string>>> my_data = DataPreHandle(train_path,train_data_row);
     vector<vector<vector<string>>> my_test_data=DataPreHandle(test_path,test_data_row);
+    //discreting the continuous data
+    for(int num=0;num<continuous_dim.size();num++)
+    {
+        my_data[1]=DataDiscreteByBiPartrition(my_data[1],y_label_class,continuous_dim[num]);
+        my_test_data[1]=DataDiscreteByBiPartrition(my_test_data[1],y_label_class,continuous_dim[num]);
+    }
     //build decision tree
     double thresh_hold=0.0;
     used_dim.push_back(0);
@@ -438,12 +575,15 @@ int main()
     }
     for(int row=1;row<my_test_data[1].size();row++)
     {
-        for( int col=0;col<my_test_data[1][row].size();col++)
-        {
-            string col_name=my_test_data[1][0][col];
-            string col_value=my_test_data[1][row][col];
-            cout<<col_name<<":"<<col_value<<"    ";
-        }
+        // for( int col=0;col<my_test_data[1][row].size();col++)
+        // {
+        //     string col_name=my_test_data[1][0][col];
+        //     string col_value=my_test_data[1][row][col];
+        //     cout<<col_name<<":"<<col_value<<"    ";
+        // }
+        string col_name=my_test_data[1][0][my_test_data[1][row].size()-1];
+        string col_value=my_test_data[1][row][my_test_data[1][row].size()-1];
+        cout<<col_name<<":"<<col_value<<"    ";
         cout<<"prediction: "<<prediction_result[row]<<endl;
     }
     cout<<"end";
