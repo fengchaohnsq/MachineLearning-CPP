@@ -6,7 +6,7 @@
 #include<math.h>
 #include <algorithm>
 using namespace std;
-vector<int> used_dim;
+// vector<int> used_dim;
 vector<string> prediction_result;
 /*
 this method is used for reading csv file to a vector class 
@@ -73,7 +73,7 @@ vector<vector<vector<string>>> DataPreHandle(string path,int data_row)
     {
         for(int column =0;column<my_data_bin[row].size();column++)
         {
-            data_bin.push_back(my_data_bin[row][column]);  //get the data of each row except the last data,which is the x data.
+            data_bin.push_back(my_data_bin[row][column]);  //get the data of each row.
         }
         data_bin1.push_back(data_bin);
         data_bin.clear();
@@ -128,7 +128,7 @@ vector<vector<string>> GetFeatureClass(vector<vector<string>> data)
     vector<vector<string>> feature_class;
     vector<string> feature_bin;
     // get feature class
-    for(int i=0;i<x_data.size()-1;i++)//exclude the id and y label
+    for(int i=0;i<x_data.size()-1;i++)//exclude the y label
     {
         for(int j=1;j<x_data[i].size();j++)//exclude the label name
         {
@@ -165,6 +165,10 @@ double Entropy(vector<vector<string>> data,vector<string> y_label_class)
     vector<string> label;
     double empirical_entropy=0.0;
     double p=0.0;
+    if(data.size()==1)
+    {
+        return empirical_entropy;
+    }
     for(int row=1;row<y_label.size();row++)// exclude label name
     {
         label.push_back(y_label[row][data[0].size()-1]);
@@ -263,7 +267,7 @@ vector<vector<string>> DataDiscreteByBiPartrition(vector<vector<string>> data,ve
     vector<double> partition_values;
     double gain_info=0.0;
     double my_partition_value;
-    for(int data_row=0;data_row<sorted_data.size()-1;data_row++)// the number of partition value is data_row-1
+    for(int data_row=1;data_row<sorted_data.size()-1;data_row++)// the number of partition value is data_row-1
     {
         double value=(atof(sorted_data[data_row][discrete_dim].c_str())+atof(sorted_data[data_row+1][discrete_dim].c_str()))/2;
         partition_values.push_back(value);
@@ -313,6 +317,8 @@ struct node
     string y_label;//this is leaf nodes' classification result. 
     int selected_dimention; // selected feature
     vector<node *> childs; // add child node using 	Node * new_node = new Node(); 		this->childs.push_back(new_node);
+    node *parent=NULL; // add current nodes'parent node
+    double empirical_entropy=0.0;
     node(vector<vector<string>> data,int dimention=NULL,string attribute="empty",string label="empty")
     {
         splited_data = data;
@@ -357,36 +363,12 @@ int FindDim(vector<vector<string>> data,vector<string> y_label_class,vector<int>
     return selected_dim;
 }
 /*
-this method returns feature value which account for the largest ratio of the dimention.
-*/
-string FindLargestAttr(vector<vector<string>> data,int selected_dim)
-{
-    vector<vector<string>> feature_class=GetFeatureClass(data); // already exclude the id feature and y label feature,so the slected dim need to add 1.
-    vector<vector<string>> tr_data = Matrix_Transpose(data);
-    string attribute;
-    int att_num;
-    for(int dim_class=0;dim_class<feature_class[selected_dim].size();dim_class++)
-    {
-        if(dim_class==0)
-        {
-            att_num=count(tr_data[selected_dim].begin(),tr_data[selected_dim].end(),feature_class[selected_dim][dim_class]);
-            attribute=feature_class[selected_dim][dim_class];
-        }
-        else if(att_num<count(tr_data[selected_dim].begin(),tr_data[selected_dim].end(),feature_class[selected_dim][dim_class]))
-        {
-            att_num=count(tr_data[selected_dim].begin(),tr_data[selected_dim].end(),feature_class[selected_dim][dim_class]);
-            attribute=feature_class[selected_dim][dim_class];
-        }
-    }
-    return attribute;
-}
-/*
 this method is used to split data by selected dimention
 */
 vector<vector<vector<string>>> SpliteDataByDim(vector<vector<string>> data, int selected_dim)
 {
     vector<vector<string>> tr_data=Matrix_Transpose(data);
-    vector<vector<string>> feature_class=GetFeatureClass(data); // already exclude the id feature and y label feature,so the slected dim need to add 1.
+    vector<vector<string>> feature_class=GetFeatureClass(data);
     vector<vector<vector<string>>> splited_data;
     vector<vector<string>> bin;
     bin.push_back(data[0]);
@@ -403,6 +385,7 @@ vector<vector<vector<string>>> SpliteDataByDim(vector<vector<string>> data, int 
         bin.clear();
         bin.push_back(data[0]);
     }
+    //identify if all of data happend in the dim
     return splited_data;
 }
 /*
@@ -425,9 +408,9 @@ string FindLatgestYlabel(vector<vector<string>> splited_data,vector<string> y_la
     return label;
 }
 /*
-this method create decision tree.
+this recursion method create decision tree.
 */
-void DecisionTree(node *root,vector<string> y_label_class,double thresh_hold,vector<vector<string>> feature_class)
+void DecisionTree(node *root,vector<string> y_label_class,double thresh_hold,vector<vector<string>> feature_class,vector<int> &used_dim)
 {
     //determine if all instances belong to same class, then return the single node
     for(int y_dim=0;y_dim<y_label_class.size();y_dim++)
@@ -436,23 +419,26 @@ void DecisionTree(node *root,vector<string> y_label_class,double thresh_hold,vec
         if(count(tr_data[tr_data.size()-1].begin(),tr_data[tr_data.size()-1].end(),y_label_class[y_dim])==tr_data[root->selected_dimention].size()-1)
         {
             root->y_label=y_label_class[y_dim];
+            root->empirical_entropy=Entropy(root->splited_data,y_label_class);
             return;
         }
     }
-    // all dimention are used except the last dimention
+    // all dimention are used except the last dimention y label
     if(used_dim.size()==(root->splited_data[0].size()-1))
     {
         if(root->selected_dimention==0)
         {
             root->y_label=FindLatgestYlabel(root->splited_data,y_label_class);
+            root->empirical_entropy=Entropy(root->splited_data,y_label_class);
             return;
         }
-        vector<vector<vector<string>>> splited_data= SpliteDataByDim(root->splited_data,root->selected_dimention);
-        for(int feature_num=0;feature_num<splited_data.size();feature_num++)    //spliting data based on the number of dimention classification 
-        {
-            node *child_node= new node(splited_data[feature_num],NULL,feature_class[root->selected_dimention][feature_num],FindLatgestYlabel(splited_data[feature_num],y_label_class)); // generate new child_node
-            root->childs.push_back(child_node);
-        }
+    }
+    //if the gain information value less than threshhold value, then return the single node.
+    // gain ratio and gain info values are big than 0,so the tree is not a balance tree
+    if(GainRatio(root->splited_data,y_label_class,root->selected_dimention)<thresh_hold)
+    {
+        root->y_label=FindLatgestYlabel(root->splited_data,y_label_class);
+        root->empirical_entropy=Entropy(root->splited_data,y_label_class);
         return;
     }
 
@@ -462,63 +448,170 @@ void DecisionTree(node *root,vector<string> y_label_class,double thresh_hold,vec
     used_dim.push_back(selected_dim);
     root->selected_dimention=selected_dim;
     vector<vector<vector<string>>> splited_data= SpliteDataByDim(root->splited_data,root->selected_dimention);//split data by dimention
-
-    //if the gain information value less than threshhold value, then return the single node.
-    if(GainInfo(root->splited_data,y_label_class,root->selected_dimention)<thresh_hold)
-    {
-        root->y_label=FindLatgestYlabel(root->splited_data,y_label_class);
-        return;
-    }
-
-    //if data set left one data row only then return node as leaf node
-    if(root->splited_data.size()==1)
-    {
-        root->y_label=FindLatgestYlabel(root->splited_data,y_label_class);
-        return;
-    }
-
     // spliting the data as several subsets and made the largest subset as class label.
-    for(int feature_num=0;feature_num<splited_data.size();feature_num++)    //spliting data based on the number of dimention classification 
+    for(int feature_num=0;feature_num<splited_data.size();feature_num++)//spliting data based on the number of dimention classification 
     {
-        node *child_node= new node(splited_data[feature_num],0,feature_class[root->selected_dimention][feature_num],"empty"); // generate new child_node
-        root->childs.push_back(child_node);
-    }
-
-    //recursive treval each child node
-    if(root->childs.size()>0)
-    {
-        for(int i =0;i<root->childs.size();i++)
+        if(splited_data[feature_num].size()>1)
         {
-            DecisionTree(root->childs[i],y_label_class,thresh_hold,feature_class);
+            node *child_node= new node(splited_data[feature_num],0,splited_data[feature_num][1][root->selected_dimention],"empty");//generate new child_node
+            child_node->parent=root;
+            child_node->empirical_entropy=Entropy(child_node->splited_data,y_label_class);
+            root->childs.push_back(child_node);
         }
+    }
+    //recursive treval each child node
+    //if it run out then it will recusive to another branch which dont run yet.
+    for(int i =0;i<root->childs.size();i++)
+    {
+        DecisionTree(root->childs[i],y_label_class,thresh_hold,feature_class,used_dim);
     }
 }
 /*
-this method is used to cart the decision tree
+this recursion method gets all of the leaf nodes' empirical entropy of the original tree
+recusion method has to pass the address to do the recusion call.
 */
-double c_loss=0.0;
-void CartTree(node *root,double alpha)
+void GetLeafs(node* root,node* start_node,vector<node*> &my_leafs,int find_parent_times,bool &find_flag)
 {
-    if(root->childs.size()==0)//if it didnt have a child node then this is a leaf node
+    
+    for(int i=0;i<find_parent_times;i++)
     {
-        return;
+        start_node=start_node->parent;
+    }
+    if(start_node==nullptr)
+    {
+        if(root->childs.size()==0) // if this is a leaf node
+        {
+            my_leafs.push_back(root);// get leaf node pointer;
+        }
+    }
+    else
+    {
+        if(root->childs.size()==0 && (root->parent->data_attribute)!=(start_node->parent->data_attribute) && (root->parent->selected_dimention)!=(start_node->parent->selected_dimention)) // it is a leaf node and they dont have same parent   root->parent!=start_node->parent
+        {
+            my_leafs.push_back(root);// get leaf node pointer;
+        }
+        if((root->parent->data_attribute)==(start_node->parent->data_attribute) && (root->parent->selected_dimention)==(start_node->parent->selected_dimention) && find_flag)// exclude the son node which had same father   root->parent==start_node->parent
+        {
+            
+            my_leafs.push_back(root->parent);//set its ancestor as leaf node
+            find_flag=false;
+        }
     }
     for(int i=0;i<root->childs.size();i++)
     {
-        if(root->childs.size()==0)
-        {
-            c_loss=0.0;
-            // this is a leaf node
-        }
-        else
-        {
-            CartTree(root->childs[i],alpha);
-        }
-        
+        GetLeafs(root->childs[i],start_node,my_leafs,0,find_flag);
     }
 }
 /*
-this method return the result from decision tree prediction.
+this method calculates the decision tree loss for cutting tree
+*/
+double CalTreeLoss(vector<node*> my_leafs,double alpha=0.0)
+{
+    double loss=0.0;
+    for(int i=0;i<my_leafs.size();i++)
+    {
+        loss=loss+my_leafs[i]->empirical_entropy*(my_leafs[i]->splited_data.size()-1);
+    }
+    return loss+(alpha*my_leafs.size());
+}
+/*
+this recursion method is used to trim tree
+the tree is pointer type struct which passed a address，so it need not to declare in the public region.
+*/
+void TrimTree(node* tree,node *leaf,vector<string> y_label_class,int find_parent_times)
+{
+    for(int i=0;i>find_parent_times;i++)
+    {
+        leaf=leaf->parent;
+    }
+    if((tree->data_attribute==leaf->data_attribute)&&(tree->selected_dimention==leaf->selected_dimention))// point to the same address then find the new leaf node which the leaf node 's parent.
+    {
+        // set node as leaf node
+        tree->parent->childs.clear();
+        tree->parent->y_label=FindLatgestYlabel(tree->splited_data,y_label_class);
+        return;
+    }
+    else
+    {
+        for(int i=0;i<tree->childs.size();i++)
+        {
+            TrimTree(tree->childs[i],leaf,y_label_class,find_parent_times);
+        }
+    }
+}
+/*
+this method used to get unique leaf nodes which have different parent
+*/
+vector<node*> GetUnDuplicateNode(vector<node*> my_leafs)
+{
+    vector<node*> single_node;
+    vector<int> duplicate_index;
+    for(int i=0;i<my_leafs.size()-1;i++)
+    {
+        for(int j=i+1;j<my_leafs.size();j++)
+        {
+            if(my_leafs[i]->parent==my_leafs[j]->parent)//if(my_leafs[i]->parent->data_attribute==my_leafs[j]->parent->data_attribute&&my_leafs[i]->parent->selected_dimention==my_leafs[j]->parent->selected_dimention)
+            {
+                duplicate_index.push_back(j);
+            }
+        }
+    }
+    for(int i=0;i<my_leafs.size()-1;i++)
+    {
+        if(count(duplicate_index.begin(),duplicate_index.end(),i)>0)
+        {
+            continue;
+        }
+        single_node.push_back(my_leafs[i]);
+    }
+    return single_node;
+}
+/*
+this method is used to cut the decision tree after building tree
+*/
+void CutTree(node *root,double alpha,vector<string> y_label_class)
+{
+    double loss_cut_before;
+    double loss_cut_after; 
+    //get initial leafs 
+    vector<node*> original_leafs;
+    bool original_flag=true;
+    GetLeafs(root,nullptr,original_leafs,0,original_flag);
+    vector<node*> single_node=GetUnDuplicateNode(original_leafs);//delete the duplicated node which has same parent.
+    // traversal all of leaf nodes of original tree
+    for(int i=0;i<single_node.size();i++)
+    {
+        node* start_node=single_node[i];// first child node
+        bool flag=false;
+        int find_parent_times=0;
+        do
+        {
+            // calculate the loss before cutting tree
+            vector<node*> leafs;
+            bool leafs_flag=true;
+            GetLeafs(root,nullptr,leafs,0,leafs_flag);
+            loss_cut_before=CalTreeLoss(leafs,alpha);
+            // trim the tree based on the leaf node
+            vector<node*> trim_leafs;
+            bool trim_leafs_flag=true;
+            GetLeafs(root,start_node,trim_leafs,find_parent_times,trim_leafs_flag);
+            loss_cut_after=CalTreeLoss(trim_leafs,alpha);
+            // if the loss small than cut before then cut the tree,and recurisive to find next parent node
+            if(loss_cut_after<loss_cut_before)// 发现属性和数据不相符，查看树构造按属性分割数据部分，按feature_class维度划分可能会出问题
+            {
+                TrimTree(root,start_node,y_label_class,find_parent_times);
+                find_parent_times++;
+                flag=true;
+            }else
+            {
+                flag=false;
+            }
+
+        } while (flag);
+    }
+}
+/*
+this recursion method return the result from decision tree prediction.
 */
 void DecisionTreePrediction(node *decision_tree,vector<string> data_row)
 { 
@@ -562,11 +655,19 @@ int main()
         my_test_data[1]=DataDiscreteByBiPartrition(my_test_data[1],y_label_class,continuous_dim[num]);
     }
     //build decision tree
-    double thresh_hold=0.0;
+    double thresh_hold=0.0;// this can be used to control the structure of original tree, to prevent it generates unbalanced tree
+    vector<int> used_dim;
     used_dim.push_back(0);
+    //initialing the root node
     node *root= new node(my_data[1],0,"empty","empty");
+    root->parent=root;
+    root->empirical_entropy=Entropy(my_data[1],y_label_class);
     vector<vector<string>> feature_class=GetFeatureClass(my_data[1]);
-    DecisionTree(root,y_label_class,thresh_hold,feature_class);
+    //training decision tree
+    DecisionTree(root,y_label_class,thresh_hold,feature_class,used_dim);
+    //cut the decision tree for more prcision result
+    double alpha=0.0;//the alpha parameter controlled the complex degree of the tree
+    CutTree(root,alpha,y_label_class);
     //using decision tree to predict
     prediction_result.push_back("prediction result");
     for(int row=1;row<my_test_data[1].size();row++)
@@ -575,12 +676,12 @@ int main()
     }
     for(int row=1;row<my_test_data[1].size();row++)
     {
-        // for( int col=0;col<my_test_data[1][row].size();col++)
-        // {
-        //     string col_name=my_test_data[1][0][col];
-        //     string col_value=my_test_data[1][row][col];
-        //     cout<<col_name<<":"<<col_value<<"    ";
-        // }
+        for( int col=0;col<my_test_data[1][row].size();col++)
+        {
+            string col_name=my_test_data[1][0][col];
+            string col_value=my_test_data[1][row][col];
+            cout<<col_name<<":"<<col_value<<"    ";
+        }
         string col_name=my_test_data[1][0][my_test_data[1][row].size()-1];
         string col_value=my_test_data[1][row][my_test_data[1][row].size()-1];
         cout<<col_name<<":"<<col_value<<"    ";
