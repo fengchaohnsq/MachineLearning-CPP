@@ -73,7 +73,7 @@ vector<vector<vector<string>>> DataPreHandle(string path,int data_row)
     {
         for(int column =0;column<my_data_bin[row].size();column++)
         {
-            data_bin.push_back(my_data_bin[row][column]);  //get the data of each row except the last data,which is the x data.
+            data_bin.push_back(my_data_bin[row][column]);  //get the data of each row.
         }
         data_bin1.push_back(data_bin);
         data_bin.clear();
@@ -109,7 +109,7 @@ vector<vector<string>> GetFeatureClass(vector<vector<string>> data)
     vector<vector<string>> feature_class;
     vector<string> feature_bin;
     // get feature class
-    for(int i=0;i<x_data.size()-1;i++)//exclude the id and y label
+    for(int i=0;i<x_data.size()-1;i++)//exclude the y label
     {
         for(int j=1;j<x_data[i].size();j++)//exclude the label name
         {
@@ -146,6 +146,10 @@ double Entropy(vector<vector<string>> data,vector<string> y_label_class)
     vector<string> label;
     double empirical_entropy=0.0;
     double p=0.0;
+    if(data.size()==1)
+    {
+        return empirical_entropy;
+    }
     // calculate each dimentions' entropy 
     for(int row=1;row<y_label.size();row++)// exclude label name
     {
@@ -262,36 +266,12 @@ int FindDim(vector<vector<string>> data,vector<string> y_label_class,vector<int>
     return selected_dim;
 }
 /*
-this method returns feature value which account for the largest ratio of the dimention.
-*/
-string FindLargestAttr(vector<vector<string>> data,int selected_dim)
-{
-    vector<vector<string>> feature_class=GetFeatureClass(data); // already exclude the id feature and y label feature,so the slected dim need to add 1.
-    vector<vector<string>> tr_data = Matrix_Transpose(data);
-    string attribute;
-    int att_num;
-    for(int dim_class=0;dim_class<feature_class[selected_dim].size();dim_class++)
-    {
-        if(dim_class==0)
-        {
-            att_num=count(tr_data[selected_dim].begin(),tr_data[selected_dim].end(),feature_class[selected_dim][dim_class]);
-            attribute=feature_class[selected_dim][dim_class];
-        }
-        else if(att_num<count(tr_data[selected_dim].begin(),tr_data[selected_dim].end(),feature_class[selected_dim][dim_class]))
-        {
-            att_num=count(tr_data[selected_dim].begin(),tr_data[selected_dim].end(),feature_class[selected_dim][dim_class]);
-            attribute=feature_class[selected_dim][dim_class];
-        }
-    }
-    return attribute;
-}
-/*
 this method is used to split data by selected dimention
 */
 vector<vector<vector<string>>> SpliteDataByDim(vector<vector<string>> data, int selected_dim)
 {
     vector<vector<string>> tr_data=Matrix_Transpose(data);
-    vector<vector<string>> feature_class=GetFeatureClass(data); // already exclude the id feature and y label feature,so the slected dim need to add 1.
+    vector<vector<string>> feature_class=GetFeatureClass(data); 
     vector<vector<vector<string>>> splited_data;
     vector<vector<string>> bin;
     bin.push_back(data[0]);
@@ -344,7 +324,7 @@ void DecisionTree(node *root,vector<string> y_label_class,double thresh_hold,vec
             return;
         }
     }
-    // all dimention are used except the last dimention
+    // all dimention are used except the last dimention y label
     if(used_dim.size()==(root->splited_data[0].size()-1))
     {
         if(root->selected_dimention==0)
@@ -352,50 +332,34 @@ void DecisionTree(node *root,vector<string> y_label_class,double thresh_hold,vec
             root->y_label=FindLatgestYlabel(root->splited_data,y_label_class);
             return;
         }
-        vector<vector<vector<string>>> splited_data= SpliteDataByDim(root->splited_data,root->selected_dimention);
-        for(int feature_num=0;feature_num<splited_data.size();feature_num++)    //spliting data based on the number of dimention classification 
-        {
-            node *child_node= new node(splited_data[feature_num],NULL,feature_class[root->selected_dimention][feature_num],FindLatgestYlabel(splited_data[feature_num],y_label_class)); // generate new child_node
-            root->childs.push_back(child_node);
-        }
-        return;
     }
-
-    // build tree
-    //calculate the largest gain information to find unused dim.
-    int selected_dim=FindDim(root->splited_data,y_label_class,used_dim);
-    used_dim.push_back(selected_dim);
-    root->selected_dimention=selected_dim;
-    vector<vector<vector<string>>> splited_data= SpliteDataByDim(root->splited_data,root->selected_dimention);//split data by dimention
-
     //if the gain information value less than threshhold value, then return the single node.
     if(GainInfo(root->splited_data,y_label_class,root->selected_dimention)<thresh_hold)
     {
         root->y_label=FindLatgestYlabel(root->splited_data,y_label_class);
         return;
     }
-
-    //if data set left one data row only then return node as leaf node
-    if(root->splited_data.size()==1)
-    {
-        root->y_label=FindLatgestYlabel(root->splited_data,y_label_class);
-        return;
-    }
-
+    // build tree
+    //calculate the largest gain information to find unused dim.
+    int selected_dim=FindDim(root->splited_data,y_label_class,used_dim);
+    used_dim.push_back(selected_dim);
+    root->selected_dimention=selected_dim;
+    vector<vector<vector<string>>> splited_data= SpliteDataByDim(root->splited_data,root->selected_dimention);//split data by dimention
     // spliting the data as several subsets and made the largest subset as class label.
     for(int feature_num=0;feature_num<splited_data.size();feature_num++)    //spliting data based on the number of dimention classification 
     {
-        node *child_node= new node(splited_data[feature_num],NULL,feature_class[root->selected_dimention][feature_num],"empty"); // generate new child_node
-        root->childs.push_back(child_node);
-    }
-
-    //recursive treval each child node
-    if(root->childs.size()>0)
-    {
-        for(int i =0;i<root->childs.size();i++)
-        {
-            DecisionTree(root->childs[i],y_label_class,thresh_hold,feature_class);
+        if(splited_data[feature_num].size()>1)
+        {    
+            node *child_node= new node(splited_data[feature_num],0,splited_data[feature_num][1][root->selected_dimention],"empty");
+            // generate new child_node
+            root->childs.push_back(child_node);
         }
+    }
+    //recursive treval each child node
+    //if it run out then it will recusive to another branch which dont run yet.
+    for(int i =0;i<root->childs.size();i++)
+    {
+        DecisionTree(root->childs[i],y_label_class,thresh_hold,feature_class);
     }
 }
 /*
